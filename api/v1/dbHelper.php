@@ -28,19 +28,20 @@ class dbHelper {
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if(count($rows)<=0){
                 $response["status"] = "warning";
-                $response["message"] = "No data found.";
+                $response["message"] = "No se encontraron datos.";
             }else{
                 $response["status"] = "success";
-                $response["message"] = "Data selected from database";
+                $response["message"] = "Datos seleccionados de la DB";
             }
                 $response["data"] = $rows;
         }catch(PDOException $e){
             $response["status"] = "error";
-            $response["message"] = 'Select Failed: ' .$e->getMessage();
+            $response["message"] = 'Select fallido: ' .$e->getMessage();
             $response["data"] = null;
         }
         return $response;
     }
+    //Select ordenado
     function select2($table, $columns, $where, $order){
         try{
             $a = array();
@@ -54,15 +55,15 @@ class dbHelper {
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if(count($rows)<=0){
                 $response["status"] = "warning";
-                $response["message"] = "No data found.";
+                $response["message"] = "No se encontraron datos.";
             }else{
                 $response["status"] = "success";
-                $response["message"] = "Data selected from database";
+                $response["message"] = "Datos seleccionados de la DB";
             }
                 $response["data"] = $rows;
         }catch(PDOException $e){
             $response["status"] = "error";
-            $response["message"] = 'Select Failed: ' .$e->getMessage();
+            $response["message"] = 'Select fallido: ' .$e->getMessage();
             $response["data"] = null;
         }
         return $response;
@@ -86,11 +87,11 @@ class dbHelper {
             $affected_rows = $stmt->rowCount();
             $lastInsertId = $this->db->lastInsertId();
             $response["status"] = "success";
-            $response["message"] = $affected_rows." row inserted into database";
+            $response["message"] = $affected_rows." row insertada en la db";
             $response["data"] = $lastInsertId;
         }catch(PDOException $e){
             $response["status"] = "error";
-            $response["message"] = 'Insert Failed: ' .$e->getMessage();
+            $response["message"] = 'Insert fallido: ' .$e->getMessage();
             $response["data"] = 0;
         }
         return $response;
@@ -116,21 +117,21 @@ class dbHelper {
             $affected_rows = $stmt->rowCount();
             if($affected_rows<=0){
                 $response["status"] = "warning";
-                $response["message"] = "No row updated";
+                $response["message"] = "row no actualizada";
             }else{
                 $response["status"] = "success";
-                $response["message"] = $affected_rows." row(s) updated in database";
+                $response["message"] = $affected_rows." row(s) actualizada en DB";
             }
         }catch(PDOException $e){
             $response["status"] = "error";
-            $response["message"] = "Update Failed: " .$e->getMessage();
+            $response["message"] = "Update fallido: " .$e->getMessage();
         }
         return $response;
     }
     function delete($table, $where){
         if(count($where)<=0){
             $response["status"] = "warning";
-            $response["message"] = "Delete Failed: At least one condition is required";
+            $response["message"] = "Delete fallido: Se requiere por lo menos UNA condicion.";
         }else{
             try{
                 $a = array();
@@ -144,45 +145,19 @@ class dbHelper {
                 $affected_rows = $stmt->rowCount();
                 if($affected_rows<=0){
                     $response["status"] = "warning";
-                    $response["message"] = "No row deleted";
+                    $response["message"] = "No se elimino row";
                 }else{
                     $response["status"] = "success";
-                    $response["message"] = $affected_rows." row(s) deleted from database";
+                    $response["message"] = $affected_rows." row(s) eliminada(s) de DB";
                 }
             }catch(PDOException $e){
                 $response["status"] = "error";
-                $response["message"] = 'Delete Failed: ' .$e->getMessage();
+                $response["message"] = 'Delete fallido: ' .$e->getMessage();
             }
         }
         return $response;
     }
-    /*function selectP($name){
-        // Select statement
-        try{
-            // $a = array();
-            // $w = "";
-            // // $where = array('name' => 'Ipsita Sahoo', 'uid'=>'170' );
-            // foreach ($where as $key => $value) {
-            //     $w .= " and " .$key. " like :".$key;
-            //     $a[":".$key] = $value;
-            // }
-            // $stmt = $this->db->prepare("CALL `simpleproc`(@a);SELECT @a AS `param1`;");
-            // $stmt->execute($a);
-            // return $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $stmt = $this->db->prepare("CALL $name(@resultId)");
-            $stmt->execute();
-            $stmt = $this->db->prepare("select @resultId as Id");
-            $stmt->execute();
-            $myResultId = $stmt->fetchColumn();
 
-            print "procedure returned \n".$myResultId;
-
-        }catch(PDOException $e){
-            print_r('Query Failed: ' .$e->getMessage());
-            return $rows=null;
-            exit;
-        }
-    }*/
     function verifyRequiredParams($inArray, $requiredColumns) {
         $error = false;
         $errorColumns = "";
@@ -197,7 +172,7 @@ class dbHelper {
         if ($error) {
             $response = array();
             $response["status"] = "error";
-            $response["message"] = 'Required field(s) ' . rtrim($errorColumns, ', ') . ' is missing or empty';
+            $response["message"] = 'Campos requeridos ' . rtrim($errorColumns, ', ') . ' faltan o se encuentran vacios.';
             echoResponse(200, $response);
             exit;
         }

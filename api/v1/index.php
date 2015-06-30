@@ -19,38 +19,38 @@ delete(table name, where clause as array)
 
 
 // Products
-$app->get('/products', function() {
+$app->get('/usuarios', function() {
     global $db;
-    $rows = $db->select("products","id,sku,name,description,price,mrp,stock,image,packing,status",array());
+    $rows = $db->select("usuarios","id, nombre, apellido_paterno, apellido_materno, user, pass, email, tid",array());
     echoResponse(200, $rows);
 });
 
-$app->post('/products', function() use ($app) {
+$app->post('/usuarios', function() use ($app) {
     $data = json_decode($app->request->getBody());
-    $mandatory = array('name');
+    $mandatory = array('nombre');
     global $db;
-    $rows = $db->insert("products", $data, $mandatory);
+    $rows = $db->insert("usuarios", $data, $mandatory);
     if($rows["status"]=="success")
-        $rows["message"] = "Product added successfully.";
+        $rows["message"] = "Usuario agregado con exito.";
     echoResponse(200, $rows);
 });
 
-$app->put('/products/:id', function($id) use ($app) {
+$app->put('/usuarios/:id', function($id) use ($app) {
     $data = json_decode($app->request->getBody());
     $condition = array('id'=>$id);
     $mandatory = array();
     global $db;
-    $rows = $db->update("products", $data, $condition, $mandatory);
+    $rows = $db->update("usuarios", $data, $condition, $mandatory);
     if($rows["status"]=="success")
-        $rows["message"] = "Product information updated successfully.";
+        $rows["message"] = "Informacion de usuario actualizada con exito.";
     echoResponse(200, $rows);
 });
 
-$app->delete('/products/:id', function($id) {
+$app->delete('/usuarios/:id', function($id) {
     global $db;
-    $rows = $db->delete("products", array('id'=>$id));
+    $rows = $db->delete("usuarios", array('id'=>$id));
     if($rows["status"]=="success")
-        $rows["message"] = "Product removed successfully.";
+        $rows["message"] = "Usuario removido con exito.";
     echoResponse(200, $rows);
 });
 

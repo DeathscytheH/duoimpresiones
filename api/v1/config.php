@@ -2,9 +2,9 @@
 /**
  * Database configuration
  */
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_USERNAME', 'duo_admin');
+define('DB_PASSWORD', 'holamundo123.');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'angularcode_products');
+define('DB_NAME', 'duoimpresiones');
 
 ?>

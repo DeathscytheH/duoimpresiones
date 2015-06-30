@@ -15,7 +15,7 @@ create table if not exists tipoUsuario(
 )charset=utf8;
 
 create table usuarios(
-	uid smallint unsigned AUTO_INCREMENT NOT NULL,
+	id smallint unsigned AUTO_INCREMENT NOT NULL,
     nombre varchar(50) not null,
 	apellido_paterno varchar(50) not null,
     apellido_materno varchar(50) not null,
@@ -23,7 +23,7 @@ create table usuarios(
     pass varchar(200) not null,
     email varchar(50) not null unique,
     tid smallint unsigned not null,
-    primary key(uid),
+    primary key(id),
     foreign key(tid) references tipoUsuario(tid)
 )charset=utf8;
 
