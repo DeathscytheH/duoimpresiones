@@ -1,23 +1,24 @@
-app.controller('productsCtrl', function ($scope, $modal, $filter, Data) {
-    $scope.product = {};
-    Data.get('products').then(function(data){
-        $scope.products = data.data;
+app.controller('usuariosCtrl', function ($scope, $modal, $filter, Data) {
+    $scope.usuario = {};
+    Data.get('usuarios').then(function(data){
+        $scope.usuarios = data.data;
     });
-    $scope.changeProductStatus = function(product){
-        product.status = (product.status=="Active" ? "Inactive" : "Active");
-        Data.put("products/"+product.id,{status:product.status});
+    //1
+    $scope.changeUsuarioStatus = function(usuario){
+        usuario.status = (usuario.status=="Activo" ? "Inactivo" : "Activo");
+        Data.put("usuarios/"+usuario.id,{status:usuario.status});
     };
-    $scope.deleteProduct = function(product){
-        if(confirm("Are you sure to remove the product")){
-            Data.delete("products/"+product.id).then(function(result){
-                $scope.products = _.without($scope.products, _.findWhere($scope.products, {id:product.id}));
+    $scope.deleteUsuario = function(usuario){
+        if(confirm("¿Estas seguro de eliminar al usuario?")){
+            Data.delete("usuarios/"+usuario.id).then(function(result){
+                $scope.usuarios = _.without($scope.usuarios, _.findWhere($scope.usuarios, {id:usuario.id}));
             });
         }
     };
     $scope.open = function (p,size) {
         var modalInstance = $modal.open({
-          templateUrl: 'partials/productEdit.html',
-          controller: 'productEditCtrl',
+          templateUrl: 'partials/usuarioEdit.html',
+          controller: 'usuarioEditCtrl',
           size: size,
           resolve: {
             item: function () {
@@ -27,8 +28,8 @@ app.controller('productsCtrl', function ($scope, $modal, $filter, Data) {
         });
         modalInstance.result.then(function(selectedObject) {
             if(selectedObject.save == "insert"){
-                $scope.products.push(selectedObject);
-                $scope.products = $filter('orderBy')($scope.products, 'id', 'reverse');
+                $scope.usuarios.push(selectedObject);
+                $scope.usuarios = $filter('orderBy')($scope.usuarios, 'id', 'reverse');
             }else if(selectedObject.save == "update"){
                 p.description = selectedObject.description;
                 p.price = selectedObject.price;
@@ -40,38 +41,40 @@ app.controller('productsCtrl', function ($scope, $modal, $filter, Data) {
 
  $scope.columns = [
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
-                    {text:"Name",predicate:"name",sortable:true},
-                    {text:"Price",predicate:"price",sortable:true},
-                    {text:"Stock",predicate:"stock",sortable:true},
-                    {text:"Packing",predicate:"packing",reverse:true,sortable:true,dataType:"number"},
-                    {text:"Description",predicate:"description",sortable:true},
+                    {text:"Nombre",predicate:"nombre",sortable:true},
+                    {text:"Apellido Paterno",predicate:"apellido_paterno",sortable:true},
+                    {text:"Apellido Materno",predicate:"apellido_materno",sortable:true},
+                    {text:"Usuario",predicate:"usuario",sortable:true},
+                    {text:"Password",predicate:"pass",sortable:true},
+                    {text:"Email",predicate:"email",sortable:true},
+                    {text:"Tipo de Usuario",predicate:"tid",reverse:true,sortable:true,dataType:"number"},
                     {text:"Status",predicate:"status",sortable:true},
-                    {text:"Action",predicate:"",sortable:false}
+                    {text:"Accion",predicate:"",sortable:false}
                 ];
 
 });
 
 
-app.controller('productEditCtrl', function ($scope, $modalInstance, item, Data) {
+app.controller('usuarioEditCtrl', function ($scope, $modalInstance, item, Data) {
 
-  $scope.product = angular.copy(item);
+  $scope.usuario = angular.copy(item);
 
         $scope.cancel = function () {
             $modalInstance.dismiss('Close');
         };
-        $scope.title = (item.id > 0) ? 'Edit Product' : 'Add Product';
-        $scope.buttonText = (item.id > 0) ? 'Update Product' : 'Add New Product';
+        $scope.title = (item.id > 0) ? 'Editar usuario' : 'Agregar usuario';
+        $scope.buttonText = (item.id > 0) ? 'Actualizar usuario' : 'Agregar nuevo usuario';
 
         var original = item;
         $scope.isClean = function() {
-            return angular.equals(original, $scope.product);
+            return angular.equals(original, $scope.usuario);
         }
-        $scope.saveProduct = function (product) {
-            product.uid = $scope.uid;
-            if(product.id > 0){
-                Data.put('products/'+product.id, product).then(function (result) {
+        $scope.saveUsuario = function (usuario) {
+            usuario.uid = $scope.uid;
+            if(usuario.id > 0){
+                Data.put('usuarios/'+usuario.id, usuario).then(function (result) {
                     if(result.status != 'error'){
-                        var x = angular.copy(product);
+                        var x = angular.copy(usuario);
                         x.save = 'update';
                         $modalInstance.close(x);
                     }else{
@@ -79,10 +82,10 @@ app.controller('productEditCtrl', function ($scope, $modalInstance, item, Data) 
                     }
                 });
             }else{
-                product.status = 'Active';
-                Data.post('products', product).then(function (result) {
+                usuario.status = 'Activo';
+                Data.post('usuarios', usuario).then(function (result) {
                     if(result.status != 'error'){
-                        var x = angular.copy(product);
+                        var x = angular.copy(usuario);
                         x.save = 'insert';
                         x.id = result.data;
                         $modalInstance.close(x);
