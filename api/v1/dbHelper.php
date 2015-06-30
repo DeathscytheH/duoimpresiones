@@ -11,10 +11,11 @@ class dbHelper {
             $response["status"] = "error";
             $response["message"] = 'Connection failed: ' . $e->getMessage();
             $response["data"] = null;
+            //echoResponse(200, $response);
             exit;
         }
     }
-    function select($table, $where){
+    function select($table, $columns, $where){
         try{
             $a = array();
             $w = "";
@@ -22,7 +23,33 @@ class dbHelper {
                 $w .= " and " .$key. " like :".$key;
                 $a[":".$key] = $value;
             }
-            $stmt = $this->db->prepare("select * from ".$table." where 1=1 ". $w);
+            $stmt = $this->db->prepare("select ".$columns." from ".$table." where 1=1 ". $w);
+            $stmt->execute($a);
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if(count($rows)<=0){
+                $response["status"] = "warning";
+                $response["message"] = "No data found.";
+            }else{
+                $response["status"] = "success";
+                $response["message"] = "Data selected from database";
+            }
+                $response["data"] = $rows;
+        }catch(PDOException $e){
+            $response["status"] = "error";
+            $response["message"] = 'Select Failed: ' .$e->getMessage();
+            $response["data"] = null;
+        }
+        return $response;
+    }
+    function select2($table, $columns, $where, $order){
+        try{
+            $a = array();
+            $w = "";
+            foreach ($where as $key => $value) {
+                $w .= " and " .$key. " like :".$key;
+                $a[":".$key] = $value;
+            }
+            $stmt = $this->db->prepare("select ".$columns." from ".$table." where 1=1 ". $w." ".$order);
             $stmt->execute($a);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if(count($rows)<=0){
@@ -57,11 +84,14 @@ class dbHelper {
             $stmt =  $this->db->prepare("INSERT INTO $table($c) VALUES($v)");
             $stmt->execute($a);
             $affected_rows = $stmt->rowCount();
+            $lastInsertId = $this->db->lastInsertId();
             $response["status"] = "success";
             $response["message"] = $affected_rows." row inserted into database";
+            $response["data"] = $lastInsertId;
         }catch(PDOException $e){
             $response["status"] = "error";
             $response["message"] = 'Insert Failed: ' .$e->getMessage();
+            $response["data"] = 0;
         }
         return $response;
     }
@@ -126,12 +156,39 @@ class dbHelper {
         }
         return $response;
     }
+    /*function selectP($name){
+        // Select statement
+        try{
+            // $a = array();
+            // $w = "";
+            // // $where = array('name' => 'Ipsita Sahoo', 'uid'=>'170' );
+            // foreach ($where as $key => $value) {
+            //     $w .= " and " .$key. " like :".$key;
+            //     $a[":".$key] = $value;
+            // }
+            // $stmt = $this->db->prepare("CALL `simpleproc`(@a);SELECT @a AS `param1`;");
+            // $stmt->execute($a);
+            // return $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt = $this->db->prepare("CALL $name(@resultId)");
+            $stmt->execute();
+            $stmt = $this->db->prepare("select @resultId as Id");
+            $stmt->execute();
+            $myResultId = $stmt->fetchColumn();
 
+            print "procedure returned \n".$myResultId;
+
+        }catch(PDOException $e){
+            print_r('Query Failed: ' .$e->getMessage());
+            return $rows=null;
+            exit;
+        }
+    }*/
     function verifyRequiredParams($inArray, $requiredColumns) {
         $error = false;
         $errorColumns = "";
         foreach ($requiredColumns as $field) {
-            if (!isset($inArray[$field]) || strlen(trim($inArray[$field])) <= 0) {
+        // strlen($inArray->$field);
+            if (!isset($inArray->$field) || strlen(trim($inArray->$field)) <= 0) {
                 $error = true;
                 $errorColumns .= $field . ', ';
             }
@@ -141,7 +198,7 @@ class dbHelper {
             $response = array();
             $response["status"] = "error";
             $response["message"] = 'Required field(s) ' . rtrim($errorColumns, ', ') . ' is missing or empty';
-            print_r($response);
+            echoResponse(200, $response);
             exit;
         }
     }
