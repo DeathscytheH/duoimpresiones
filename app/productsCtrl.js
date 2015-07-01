@@ -3,13 +3,9 @@ app.controller('usuariosCtrl', function ($scope, $modal, $filter, Data) {
     Data.get('usuarios').then(function(data){
         $scope.usuarios = data.data;
     });
-    //1
-    $scope.changeUsuarioStatus = function(usuario){
-        usuario.status = (usuario.status=="Activo" ? "Inactivo" : "Activo");
-        Data.put("usuarios/"+usuario.id,{status:usuario.status});
-    };
+
     $scope.deleteUsuario = function(usuario){
-        if(confirm("¿Estas seguro de eliminar al usuario?")){
+        if(confirm("Estas seguro de eliminar al usuario?")){
             Data.delete("usuarios/"+usuario.id).then(function(result){
                 $scope.usuarios = _.without($scope.usuarios, _.findWhere($scope.usuarios, {id:usuario.id}));
             });
@@ -17,7 +13,7 @@ app.controller('usuariosCtrl', function ($scope, $modal, $filter, Data) {
     };
     $scope.open = function (p,size) {
         var modalInstance = $modal.open({
-          templateUrl: 'partials/usuarioEdit.html',
+          templateUrl: 'partials/productEdit.html',
           controller: 'usuarioEditCtrl',
           size: size,
           resolve: {
@@ -31,10 +27,13 @@ app.controller('usuariosCtrl', function ($scope, $modal, $filter, Data) {
                 $scope.usuarios.push(selectedObject);
                 $scope.usuarios = $filter('orderBy')($scope.usuarios, 'id', 'reverse');
             }else if(selectedObject.save == "update"){
-                p.description = selectedObject.description;
-                p.price = selectedObject.price;
-                p.stock = selectedObject.stock;
-                p.packing = selectedObject.packing;
+                p.nombre = selectedObject.nombre;
+                p.apellido_paterno = selectedObject.apellido_paterno;
+                p.apellido_materno = selectedObject.apellido_materno;
+                p.user = selectedObject.user;
+                p.pass = selectedObject.pass;
+                p.email = selectedObject.email;
+                p.tid = selectedObject.tid;
             }
         });
     };
@@ -44,11 +43,10 @@ app.controller('usuariosCtrl', function ($scope, $modal, $filter, Data) {
                     {text:"Nombre",predicate:"nombre",sortable:true},
                     {text:"Apellido Paterno",predicate:"apellido_paterno",sortable:true},
                     {text:"Apellido Materno",predicate:"apellido_materno",sortable:true},
-                    {text:"Usuario",predicate:"usuario",sortable:true},
+                    {text:"Usuario",predicate:"user",sortable:true},
                     {text:"Password",predicate:"pass",sortable:true},
                     {text:"Email",predicate:"email",sortable:true},
                     {text:"Tipo de Usuario",predicate:"tid",reverse:true,sortable:true,dataType:"number"},
-                    {text:"Status",predicate:"status",sortable:true},
                     {text:"Accion",predicate:"",sortable:false}
                 ];
 
@@ -70,7 +68,6 @@ app.controller('usuarioEditCtrl', function ($scope, $modalInstance, item, Data) 
             return angular.equals(original, $scope.usuario);
         }
         $scope.saveUsuario = function (usuario) {
-            usuario.uid = $scope.uid;
             if(usuario.id > 0){
                 Data.put('usuarios/'+usuario.id, usuario).then(function (result) {
                     if(result.status != 'error'){
@@ -82,7 +79,6 @@ app.controller('usuarioEditCtrl', function ($scope, $modalInstance, item, Data) 
                     }
                 });
             }else{
-                usuario.status = 'Activo';
                 Data.post('usuarios', usuario).then(function (result) {
                     if(result.status != 'error'){
                         var x = angular.copy(usuario);
