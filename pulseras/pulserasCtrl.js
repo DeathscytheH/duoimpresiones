@@ -1,12 +1,12 @@
 app.controller('pulserasCtrl', function ($scope, $modal, $filter, Data) {
     $scope.usuario = {};
-    Data.get('pulsera_eventos').then(function(data){
+    Data.get('pulseras_eventos').then(function(data){
         $scope.usuarios = data.data;
     });
 
     $scope.deleteUsuario = function(usuario){
         if(confirm("Estas seguro de eliminar al usuario?")){
-            Data.delete("pulsera_eventos/"+usuario.id).then(function(result){
+            Data.delete("pulseras_eventos/"+usuario.id).then(function(result){
                 $scope.usuarios = _.without($scope.usuarios, _.findWhere($scope.usuarios, {id:usuario.id}));
             });
         }
@@ -60,7 +60,7 @@ app.controller('pulserasEditCtrl', function ($scope, $modalInstance, item, Data)
         }
         $scope.saveUsuario = function (usuario) {
             if(usuario.id > 0){
-                Data.put('pulsera_eventos/'+usuario.id, usuario).then(function (result) {
+                Data.put('pulseras_eventos/'+usuario.id, usuario).then(function (result) {
                     if(result.status != 'error'){
                         var x = angular.copy(usuario);
                         x.save = 'update';

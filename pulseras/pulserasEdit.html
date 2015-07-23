@@ -6,19 +6,14 @@
 </div>
 <div class="modal-body">
     <form name="usuario_form" class="form-horizontal" role="form" novalidate>
-        <form-element label="NOMBRE" mod="usuario">
-            <input type="text" class="form-control" name="nombre" placeholder="NOMBRE" ng-model="usuario.nombre" focus/>
-            <small class="errorMessage" ng-show="usuario_form.nombre.$dirty && usuario_form.nombre.$invalid"> Ingresa el nombre</small>
+        <form-element label="Piezas" mod="usuario">
+            <input type="text" class="form-control" name="piezas" placeholder="PIEZAS" ng-model="usuario.piezas" focus/>
+            <small class="errorMessage" ng-show="usuario_form.piezas.$dirty && usuario_form.piezas.$invalid"> Ingresa el numero de piezas.</small>
         </form-element>
 
-        <form-element label="APELLIDO PATERNO" mod="usuario">
-            <textarea class="form-control" name="apellido_paterno" placeholder="APELLIDO PATERNO" ng-model="usuario.apellido_paterno">{{usuario.apellido_paterno}}</textarea>
-            <small class="errorMessage" ng-show="usuario_form.apellido_paterno.$dirty && usuario_form.apellido_paterno.$invalid"> Ingresa el apellido paterno.</small>
-        </form-element>
-
-        <form-element label="APELLIDO MATERNO" mod="usuario">
-            <input type="text" name="apellido_materno" class="form-control" placeholder="APELLIDO MATERNO" ng-model="usuario.apellido_materno"/>
-            <small class="errorMessage" ng-show="usuario_form.apellido_materno.$dirty && usuario_form.apellido_materno.$invalid"> Ingresa el apellido materno.</small>
+        <form-element label="Precio" mod="usuario">
+            <textarea class="form-control" name="precio" placeholder="PRECIO" ng-model="usuario.precio">{{usuario.precio}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.apellido_paterno.$dirty && usuario_form.apellido_paterno.$invalid"> Ingresa el precio</small>
         </form-element>
 
         <div class="space"></div>

@@ -57,13 +57,13 @@ $app->delete('/usuarios/:id', function($id) {
 // Pulseras de eventos
 $app->get('/pulseras_eventos', function() {
     global $db;
-    $rows = $db->select("pulseras_eventos","id, piezas, precios",array());
+    $rows = $db->select("pulseras_eventos","id, piezas, precio",array());
     echoResponse(200, $rows);
 });
 
 $app->post('/pulseras_eventos', function() use ($app) {
     $data = json_decode($app->request->getBody());
-    $mandatory = array('id');
+    $mandatory = array('piezas');
     global $db;
     $rows = $db->insert("pulseras_eventos", $data, $mandatory);
     if($rows["status"]=="success")

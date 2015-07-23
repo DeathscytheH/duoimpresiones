@@ -10,9 +10,14 @@ app.config(['$routeProvider',
     })
     //Pulseras eventos
     .when('/pulseras_eventos', {
-      title: 'Pulseras para eventos',
+      title: 'Pulseras',
       templateUrl: 'pulseras/pulseras.html',
-      controller: 'pulseras/pulserasCtrl'
+      controller: 'pulserasCtrl'
+    })
+    //Prueba
+    .when('/prueba', {
+      title: 'Pulseras',
+      template: "<h1>prueba!!!</h1>"
     })
     /*
     when('/tid', {
@@ -20,7 +25,6 @@ app.config(['$routeProvider',
       templateUrl: 'partials/tipoUsuarios.html',
       controller: 'tipoUsuariosCtrl'
     }) */
-
     .otherwise({
       redirectTo: '/'
     });;
