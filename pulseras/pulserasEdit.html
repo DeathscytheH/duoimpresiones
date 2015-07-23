@@ -2,7 +2,7 @@
     <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
 </button>
 <div class="modal-header">
-    <h3 class="modal-title">Editar usuario [ID: {{usuario.id}}]</h3>
+    <h3 class="modal-title">Editar pulsera [ID: {{usuario.id}}]</h3>
 </div>
 <div class="modal-body">
     <form name="usuario_form" class="form-horizontal" role="form" novalidate>
@@ -19,26 +19,6 @@
         <form-element label="APELLIDO MATERNO" mod="usuario">
             <input type="text" name="apellido_materno" class="form-control" placeholder="APELLIDO MATERNO" ng-model="usuario.apellido_materno"/>
             <small class="errorMessage" ng-show="usuario_form.apellido_materno.$dirty && usuario_form.apellido_materno.$invalid"> Ingresa el apellido materno.</small>
-        </form-element>
-
-        <form-element label="USER" mod="usuario">
-            <input type="text" name="user" class="form-control" placeholder="USER" ng-model="usuario.user"/>
-            <small class="errorMessage" ng-show="usuario_form.user.$dirty && usuario_form.user.$invalid"> Ingresa un usuario unico.</small>
-        </form-element>
-
-        <form-element label="PASS" mod="usuario">
-            <input type="text" name="pass" class="form-control" placeholder="PASS" ng-model="usuario.pass" />
-            <small class="errorMessage" ng-show="usuario_form.pass.$dirty && usuario_form.pass.$invalid"> Ingresa un password</small>
-        </form-element>
-
-        <form-element label="EMAIL" mod="usuario">
-            <input type="text" name="email" class="form-control" placeholder="EMAIL" ng-model="usuario.email" />
-            <small class="errorMessage" ng-show="usuario_form.email.$dirty && usuario_form.email.$invalid"> Ingresa un email.</small>
-        </form-element>
-
-        <form-element label="TID" mod="usuario">
-            <input type="text" name="tid" class="form-control" placeholder="TID" ng-model="usuario.tid" only-numbers/>
-            <small class="errorMessage" ng-show="usuario_form.tid.$dirty && usuario_form.tid.$invalid"> Ingresa el tipo de usuario</small>
         </form-element>
 
         <div class="space"></div>

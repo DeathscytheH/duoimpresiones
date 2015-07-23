@@ -44,7 +44,7 @@ app.controller('pulserasCtrl', function ($scope, $modal, $filter, Data) {
 });
 
 
-app.controller('usuarioEditCtrl', function ($scope, $modalInstance, item, Data) {
+app.controller('pulserasEditCtrl', function ($scope, $modalInstance, item, Data) {
 
   $scope.usuario = angular.copy(item);
 
