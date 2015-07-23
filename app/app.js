@@ -20,6 +20,12 @@ app.config(['$routeProvider',
       templateUrl: 'tarjetas/tarjetas.html',
       controller: 'tarjetasCtrl'
     })
+    //Tabloide color
+    .when('/tabloide_color', {
+      title: 'Tabloide',
+      templateUrl: 'tabloide/tabloide.html',
+      controller: 'tabloideCtrl'
+    })
     //Prueba
     .when('/prueba', {
       title: 'Pulseras',

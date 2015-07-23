@@ -54,7 +54,7 @@ $app->delete('/usuarios/:id', function($id) {
     echoResponse(200, $rows);
 });
 
-// Pulseras de eventos
+// Inicio - Pulseras de eventos
 $app->get('/pulseras_eventos', function() {
     global $db;
     $rows = $db->select("pulseras_eventos","id, piezas, precio",array());
@@ -89,9 +89,9 @@ $app->delete('/pulseras_eventos/:id', function($id) {
         $rows["message"] = "Producto removido con exito.";
     echoResponse(200, $rows);
 });
-// Pulseras de eventos
+// Fin - Pulseras de eventos
 
-// Tarjetas de presentacion
+// Inicio - Tarjetas de presentacion
 $app->get('/tarjetas_presentacion', function() {
     global $db;
     $rows = $db->select("tarjetas_presentacion","id, piezas, frente, frente_vuelta, plastico_frente, plastico_frente_vuelta, suaje",array());
@@ -126,7 +126,44 @@ $app->delete('/tarjetas_presentacion/:id', function($id) {
         $rows["message"] = "Producto removido con exito.";
     echoResponse(200, $rows);
 });
-// Tarjetas de presentacion.
+// Fin - Tarjetas de presentacion.
+
+// Inicio - Tabloide
+$app->get('/tabloide_color', function() {
+    global $db;
+    $rows = $db->select("tabloide_color","tipo, piezas, precio",array());
+    echoResponse(200, $rows);
+});
+
+$app->post('/tabloide_color', function() use ($app) {
+    $data = json_decode($app->request->getBody());
+    $mandatory = array('tipo');
+    global $db;
+    $rows = $db->insert("tabloide_color", $data, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto agregado con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->put('/tabloide_color/:id', function($id) use ($app) {
+    $data = json_decode($app->request->getBody());
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->update("tabloide_color", $data, $condition, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Informacion de producto actualizada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->delete('/tabloide_color/:id', function($id) {
+    global $db;
+    $rows = $db->delete("tabloide_color", array('id'=>$id));
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto removido con exito.";
+    echoResponse(200, $rows);
+});
+// Fin - Tabloide
 
 function echoResponse($status_code, $response) {
     global $app;

@@ -1,0 +1,37 @@
+<button type="button" class="close" ng-click="cancel();">
+    <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+</button>
+<div class="modal-header">
+    <h3 class="modal-title">Editar Tarjeta [ID: {{usuario.id}}]</h3>
+</div>
+<div class="modal-body">
+    <form name="usuario_form" class="form-horizontal" role="form" novalidate>
+        <form-element label="tipo" mod="usuario">
+            <textarea class="form-control" name="tipo" placeholder="tipo" ng-model="usuario.tipo">{{usuario.tipo}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.tipo.$dirty && usuario_form.tipo.$invalid"> Ingresa el tipo de producto.</small>
+        </form-element>
+
+        <form-element label="Piezas" mod="usuario">
+            <input type="text" class="form-control" name="piezas" placeholder="PIEZAS" ng-model="usuario.piezas" focus/>
+            <small class="errorMessage" ng-show="usuario_form.piezas.$dirty && usuario_form.piezas.$invalid"> Ingresa el numero de piezas.</small>
+        </form-element>
+
+        <form-element label="precio" mod="usuario">
+            <input type="text" class="form-control" name="precio" placeholder="precio" ng-model="usuario.precio" focus/>
+            <small class="errorMessage" ng-show="usuario_form.precio.$dirty && usuario_form.precio.$invalid"> Ingresa el precio.</small>
+        </form-element>
+
+        <div class="space"></div>
+        <div class="space-4"></div>
+        <div class="modal-footer">
+            <form-element label="">
+                <div class="text-right">
+                    <a class="btn btn-sm" ng-click="cancel()">Cancelar<i class="ace-icon fa fa-reply"></i></a>
+                    <button ng-click="saveUsuario(usuario);" ng-disabled="usuario_form.$invalid || enableUpdate" class="btn btn-sm btn-primary" type="submit">
+                        <i class="ace-icon fa fa-check"></i>{{buttonText}}
+                    </button>
+                </div>
+            </form-element>
+        </div>
+    </form>
+</div>
