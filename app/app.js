@@ -11,8 +11,8 @@ app.config(['$routeProvider',
     //Pulseras eventos
     .when('/pulseras_eventos', {
       title: 'Pulseras para eventos',
-      templateUrl: 'partials/pulseras.html',
-      controller: 'pulserasCtrl'
+      templateUrl: 'pulseras/pulseras.html',
+      controller: 'pulseras/pulserasCtrl'
     })
     /*
     when('/tid', {
