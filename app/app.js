@@ -14,6 +14,12 @@ app.config(['$routeProvider',
       templateUrl: 'pulseras/pulseras.html',
       controller: 'pulserasCtrl'
     })
+    //Tarjetas presentacion
+    .when('/tarjetas_presentacion', {
+      title: 'Tarjetas',
+      templateUrl: 'tarjetas/tarjetas.html',
+      controller: 'tarjetasCtrl'
+    })
     //Prueba
     .when('/prueba', {
       title: 'Pulseras',

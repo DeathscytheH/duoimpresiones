@@ -78,7 +78,7 @@ $app->put('/pulseras_eventos/:id', function($id) use ($app) {
     global $db;
     $rows = $db->update("pulseras_eventos", $data, $condition, $mandatory);
     if($rows["status"]=="success")
-        $rows["message"] = "Informacion de pulseras actualizada con exito.";
+        $rows["message"] = "Informacion de producto actualizada con exito.";
     echoResponse(200, $rows);
 });
 
@@ -90,6 +90,43 @@ $app->delete('/pulseras_eventos/:id', function($id) {
     echoResponse(200, $rows);
 });
 // Pulseras de eventos
+
+// Tarjetas de presentacion
+$app->get('/tarjetas_presentacion', function() {
+    global $db;
+    $rows = $db->select("tarjetas_presentacion","id, piezas, frente, frente_vuelta, plastico_frente, plastico_frente_vuelta, suaje",array());
+    echoResponse(200, $rows);
+});
+
+$app->post('/tarjetas_presentacion', function() use ($app) {
+    $data = json_decode($app->request->getBody());
+    $mandatory = array('piezas');
+    global $db;
+    $rows = $db->insert("tarjetas_presentacion", $data, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto agregado con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->put('/tarjetas_presentacion/:id', function($id) use ($app) {
+    $data = json_decode($app->request->getBody());
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->update("tarjetas_presentacion", $data, $condition, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Informacion de producto actualizada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->delete('/tarjetas_presentacion/:id', function($id) {
+    global $db;
+    $rows = $db->delete("tarjetas_presentacion", array('id'=>$id));
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto removido con exito.";
+    echoResponse(200, $rows);
+});
+// Tarjetas de presentacion.
 
 function echoResponse($status_code, $response) {
     global $app;
