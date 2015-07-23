@@ -54,6 +54,43 @@ $app->delete('/usuarios/:id', function($id) {
     echoResponse(200, $rows);
 });
 
+// Pulseras de eventos
+$app->get('/pulseras_eventos', function() {
+    global $db;
+    $rows = $db->select("pulseras_eventos","id, piezas, precios",array());
+    echoResponse(200, $rows);
+});
+
+$app->post('/pulseras_eventos', function() use ($app) {
+    $data = json_decode($app->request->getBody());
+    $mandatory = array('id');
+    global $db;
+    $rows = $db->insert("pulseras_eventos", $data, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto agregado con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->put('/pulseras_eventos/:id', function($id) use ($app) {
+    $data = json_decode($app->request->getBody());
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->update("pulseras_eventos", $data, $condition, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Informacion de pulseras actualizada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->delete('/pulseras_eventos/:id', function($id) {
+    global $db;
+    $rows = $db->delete("pulseras_eventos", array('id'=>$id));
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto removido con exito.";
+    echoResponse(200, $rows);
+});
+// Pulseras de eventos
+
 function echoResponse($status_code, $response) {
     global $app;
     $app->status($status_code);
