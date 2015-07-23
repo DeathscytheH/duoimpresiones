@@ -5,7 +5,6 @@
     <h3 class="modal-title">Editar Tarjeta [ID: {{usuario.id}}]</h3>
 </div>
 <div class="modal-body">
-   piezas, frente, frente_vuelta, plastico_frente, plastico_frente_vuelta, suaje
     <form name="usuario_form" class="form-horizontal" role="form" novalidate>
         <form-element label="Piezas" mod="usuario">
             <input type="text" class="form-control" name="piezas" placeholder="PIEZAS" ng-model="usuario.piezas" focus/>
@@ -30,6 +29,11 @@
         <form-element label="plastico_frente_vuelta" mod="usuario">
             <input type="text" class="form-control" name="plastico_frente_vuelta" placeholder="plastico_frente_vuelta" ng-model="usuario.plastico_frente_vuelta" focus/>
             <small class="errorMessage" ng-show="usuario_form.plastico_frente_vuelta.$dirty && usuario_form.plastico_frente_vuelta.$invalid"> Ingresa el precio de plastico frente/vuelta.</small>
+        </form-element>
+
+        <form-element label="suaje" mod="usuario">
+            <input type="text" class="form-control" name="suaje" placeholder="suaje" ng-model="usuario.suaje" focus/>
+            <small class="errorMessage" ng-show="usuario_form.suaje.$dirty && usuario_form.suaje.$invalid"> Ingresa el numero de suaje.</small>
         </form-element>
 
         <div class="space"></div>
