@@ -1,4 +1,4 @@
-app.controller('pulserasCtrl', function ($scope, $modal, $filter, Data) {
+app.controller('tarjetasCtrl', function ($scope, $modal, $filter, Data) {
     $scope.usuario = {};
     Data.get('tarjetas_presentacion').then(function(data){
         $scope.usuarios = data.data;
@@ -55,8 +55,8 @@ app.controller('tarjetasEditCtrl', function ($scope, $modalInstance, item, Data)
         $scope.cancel = function () {
             $modalInstance.dismiss('Close');
         };
-        $scope.title = (item.id > 0) ? 'Editar pulsera' : 'Agregar pulsera';
-        $scope.buttonText = (item.id > 0) ? 'Actualizar pulsera' : 'Agregar nueva pulsera';
+        $scope.title = (item.id > 0) ? 'Editar tarjeta' : 'Agregar tarjeta';
+        $scope.buttonText = (item.id > 0) ? 'Actualizar tarjeta' : 'Agregar nueva tarjeta';
 
         var original = item;
         $scope.isClean = function() {

@@ -1,0 +1,48 @@
+<button type="button" class="close" ng-click="cancel();">
+    <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+</button>
+<div class="modal-header">
+    <h3 class="modal-title">Editar Tarjeta [ID: {{usuario.id}}]</h3>
+</div>
+<div class="modal-body">
+   piezas, frente, frente_vuelta, plastico_frente, plastico_frente_vuelta, suaje
+    <form name="usuario_form" class="form-horizontal" role="form" novalidate>
+        <form-element label="Piezas" mod="usuario">
+            <input type="text" class="form-control" name="piezas" placeholder="PIEZAS" ng-model="usuario.piezas" focus/>
+            <small class="errorMessage" ng-show="usuario_form.piezas.$dirty && usuario_form.piezas.$invalid"> Ingresa el numero de piezas.</small>
+        </form-element>
+
+        <form-element label="frente" mod="usuario">
+            <textarea class="form-control" name="frente" placeholder="frente" ng-model="usuario.frente">{{usuario.frente}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.apellido_paterno.$dirty && usuario_form.apellido_paterno.$invalid"> Ingresa el precio de frente</small>
+        </form-element>
+
+        <form-element label="frente_vuelta" mod="usuario">
+            <input type="text" class="form-control" name="frente_vuelta" placeholder="frente_vuelta" ng-model="usuario.frente_vuelta" focus/>
+            <small class="errorMessage" ng-show="usuario_form.frente_vuelta.$dirty && usuario_form.frente_vuelta.$invalid"> Ingresa el numero de piezas.</small>
+        </form-element>
+
+        <form-element label="plastico_frente" mod="usuario">
+            <textarea class="form-control" name="plastico_frente" placeholder="plastico_frente" ng-model="usuario.plastico_frente">{{usuario.plastico_frente}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.plastico_frente.$dirty && usuario_form.plastico_frente.$invalid"> Ingresa el precio de plastico frente.</small>
+        </form-element>
+
+        <form-element label="plastico_frente_vuelta" mod="usuario">
+            <input type="text" class="form-control" name="plastico_frente_vuelta" placeholder="plastico_frente_vuelta" ng-model="usuario.plastico_frente_vuelta" focus/>
+            <small class="errorMessage" ng-show="usuario_form.plastico_frente_vuelta.$dirty && usuario_form.plastico_frente_vuelta.$invalid"> Ingresa el precio de plastico frente/vuelta.</small>
+        </form-element>
+
+        <div class="space"></div>
+        <div class="space-4"></div>
+        <div class="modal-footer">
+            <form-element label="">
+                <div class="text-right">
+                    <a class="btn btn-sm" ng-click="cancel()">Cancelar<i class="ace-icon fa fa-reply"></i></a>
+                    <button ng-click="saveUsuario(usuario);" ng-disabled="usuario_form.$invalid || enableUpdate" class="btn btn-sm btn-primary" type="submit">
+                        <i class="ace-icon fa fa-check"></i>{{buttonText}}
+                    </button>
+                </div>
+            </form-element>
+        </div>
+    </form>
+</div>
