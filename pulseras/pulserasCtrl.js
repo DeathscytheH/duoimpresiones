@@ -1,20 +1,20 @@
-app.controller('usuariosCtrl', function ($scope, $modal, $filter, Data) {
+app.controller('pulserasCtrl', function ($scope, $modal, $filter, Data) {
     $scope.usuario = {};
-    Data.get('usuarios').then(function(data){
+    Data.get('pulsera_eventos').then(function(data){
         $scope.usuarios = data.data;
     });
 
     $scope.deleteUsuario = function(usuario){
         if(confirm("Estas seguro de eliminar al usuario?")){
-            Data.delete("usuarios/"+usuario.id).then(function(result){
+            Data.delete("pulsera_eventos/"+usuario.id).then(function(result){
                 $scope.usuarios = _.without($scope.usuarios, _.findWhere($scope.usuarios, {id:usuario.id}));
             });
         }
     };
     $scope.open = function (p,size) {
         var modalInstance = $modal.open({
-          templateUrl: 'partials/productEdit.html',
-          controller: 'usuarioEditCtrl',
+          templateUrl: 'pulseras/pulserasEdit.html',
+          controller: 'pulserasEditCtrl',
           size: size,
           resolve: {
             item: function () {
@@ -27,26 +27,17 @@ app.controller('usuariosCtrl', function ($scope, $modal, $filter, Data) {
                 $scope.usuarios.push(selectedObject);
                 $scope.usuarios = $filter('orderBy')($scope.usuarios, 'id', 'reverse');
             }else if(selectedObject.save == "update"){
-                p.nombre = selectedObject.nombre;
-                p.apellido_paterno = selectedObject.apellido_paterno;
-                p.apellido_materno = selectedObject.apellido_materno;
-                p.user = selectedObject.user;
-                p.pass = selectedObject.pass;
-                p.email = selectedObject.email;
-                p.tid = selectedObject.tid;
+                p.id = selectedObject.id;
+                p.piezas = selectedObject.piezas;
+                p.precio = selectedObject.precio;
             }
         });
     };
 
  $scope.columns = [
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
-                    {text:"Nombre",predicate:"nombre",sortable:true},
-                    {text:"Apellido Paterno",predicate:"apellido_paterno",sortable:true},
-                    {text:"Apellido Materno",predicate:"apellido_materno",sortable:true},
-                    {text:"Usuario",predicate:"user",sortable:true},
-                    {text:"Password",predicate:"pass",sortable:true},
-                    {text:"Email",predicate:"email",sortable:true},
-                    {text:"Tipo de Usuario",predicate:"tid",reverse:true,sortable:true,dataType:"number"},
+                    {text:"Piezas",predicate:"piezas",sortable:true},
+                    {text:"Precio",predicate:"precio",sortable:true},
                     {text:"Accion",predicate:"",sortable:false}
                 ];
 
@@ -60,8 +51,8 @@ app.controller('usuarioEditCtrl', function ($scope, $modalInstance, item, Data) 
         $scope.cancel = function () {
             $modalInstance.dismiss('Close');
         };
-        $scope.title = (item.id > 0) ? 'Editar usuario' : 'Agregar usuario';
-        $scope.buttonText = (item.id > 0) ? 'Actualizar usuario' : 'Agregar nuevo usuario';
+        $scope.title = (item.id > 0) ? 'Editar pulsera' : 'Agregar pulsera';
+        $scope.buttonText = (item.id > 0) ? 'Actualizar pulsera' : 'Agregar nueva pulsera';
 
         var original = item;
         $scope.isClean = function() {
@@ -69,7 +60,7 @@ app.controller('usuarioEditCtrl', function ($scope, $modalInstance, item, Data) 
         }
         $scope.saveUsuario = function (usuario) {
             if(usuario.id > 0){
-                Data.put('usuarios/'+usuario.id, usuario).then(function (result) {
+                Data.put('pulsera_eventos/'+usuario.id, usuario).then(function (result) {
                     if(result.status != 'error'){
                         var x = angular.copy(usuario);
                         x.save = 'update';
@@ -79,7 +70,7 @@ app.controller('usuarioEditCtrl', function ($scope, $modalInstance, item, Data) 
                     }
                 });
             }else{
-                Data.post('usuarios', usuario).then(function (result) {
+                Data.post('pulseras_eventos', usuario).then(function (result) {
                     if(result.status != 'error'){
                         var x = angular.copy(usuario);
                         x.save = 'insert';
