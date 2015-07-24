@@ -1,0 +1,33 @@
+<button type="button" class="close" ng-click="cancel();">
+    <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+</button>
+<div class="modal-header">
+    <h3 class="modal-title">Editar vinil de corte [ID: {{usuario.id}}]</h3>
+</div>
+<div class="modal-body">
+    <form name="usuario_form" class="form-horizontal" role="form" novalidate>
+
+        <form-element label="Tamaño" mod="usuario">
+            <input type="text" class="form-control" name="tamano" placeholder="tamano" ng-model="usuario.tamano" focus/>
+            <small class="errorMessage" ng-show="usuario_form.tamano.$dirty && usuario_form.tamano.$invalid"> Ingresa el numero de tamano.</small>
+        </form-element>
+
+        <form-element label="Precio" mod="usuario">
+            <textarea class="form-control" name="precio" placeholder="PRECIO" ng-model="usuario.precio">{{usuario.precio}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.apellido_paterno.$dirty && usuario_form.apellido_paterno.$invalid"> Ingresa el precio</small>
+        </form-element>
+
+        <div class="space"></div>
+        <div class="space-4"></div>
+        <div class="modal-footer">
+            <form-element label="">
+                <div class="text-right">
+                    <a class="btn btn-sm" ng-click="cancel()"><i class="ace-icon fa fa-reply"></i>Cancel</a>
+                    <button ng-click="saveUsuario(usuario);" ng-disabled="usuario_form.$invalid || enableUpdate" class="btn btn-sm btn-primary" type="submit">
+                        <i class="ace-icon fa fa-check"></i>{{buttonText}}
+                    </button>
+                </div>
+            </form-element>
+        </div>
+    </form>
+</div>

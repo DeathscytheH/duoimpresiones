@@ -32,6 +32,12 @@ app.config(['$routeProvider',
       templateUrl: 'fotobotones/fotobotones.html',
       controller: 'fotobotonesCtrl'
     })
+    //Vinil corte
+    .when('/vinil_corte', {
+      title: 'Vinil de corte',
+      templateUrl: 'vinilcorte/vinilcorte.html',
+      controller: 'vinilcorteCtrl'
+    })
     //Prueba
     .when('/prueba', {
       title: 'Pulseras',

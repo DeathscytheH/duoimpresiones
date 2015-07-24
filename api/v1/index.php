@@ -202,6 +202,43 @@ $app->delete('/fotobotones/:id', function($id) {
 });
 // Fin - Fotoboton
 
+// Inicio - Vinil corte
+$app->get('/vinil_corte', function() {
+    global $db;
+    $rows = $db->select("vinil_corte","id, tamano, precio",array());
+    echoResponse(200, $rows);
+});
+
+$app->post('/vinil_corte', function() use ($app) {
+    $data = json_decode($app->request->getBody());
+    $mandatory = array('tamano');
+    global $db;
+    $rows = $db->insert("vinil_corte", $data, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto agregado con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->put('/vinil_corte/:id', function($id) use ($app) {
+    $data = json_decode($app->request->getBody());
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->update("vinil_corte", $data, $condition, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Informacion de producto actualizada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->delete('/vinil_corte/:id', function($id) {
+    global $db;
+    $rows = $db->delete("vinil_corte", array('id'=>$id));
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto removido con exito.";
+    echoResponse(200, $rows);
+});
+// Fin - Vinil corte
+
 function echoResponse($status_code, $response) {
     global $app;
     $app->status($status_code);
