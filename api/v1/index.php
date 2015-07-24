@@ -131,7 +131,7 @@ $app->delete('/tarjetas_presentacion/:id', function($id) {
 // Inicio - Tabloide
 $app->get('/tabloide_color', function() {
     global $db;
-    $rows = $db->select("tabloide_color","tipo, piezas, precio",array());
+    $rows = $db->select("tabloide_color","id, tipo, piezas, precio",array());
     echoResponse(200, $rows);
 });
 
@@ -164,6 +164,43 @@ $app->delete('/tabloide_color/:id', function($id) {
     echoResponse(200, $rows);
 });
 // Fin - Tabloide
+
+// Inicio - Fotoboton
+$app->get('/fotobotones', function() {
+    global $db;
+    $rows = $db->select("fotobotones","id, tamano, piezas, precio",array());
+    echoResponse(200, $rows);
+});
+
+$app->post('/fotobotones', function() use ($app) {
+    $data = json_decode($app->request->getBody());
+    $mandatory = array('tamano');
+    global $db;
+    $rows = $db->insert("fotobotones", $data, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto agregado con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->put('/fotobotones/:id', function($id) use ($app) {
+    $data = json_decode($app->request->getBody());
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->update("fotobotones", $data, $condition, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Informacion de producto actualizada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->delete('/fotobotones/:id', function($id) {
+    global $db;
+    $rows = $db->delete("fotobotones", array('id'=>$id));
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto removido con exito.";
+    echoResponse(200, $rows);
+});
+// Fin - Fotoboton
 
 function echoResponse($status_code, $response) {
     global $app;

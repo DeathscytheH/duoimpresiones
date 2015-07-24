@@ -2,21 +2,21 @@
     <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
 </button>
 <div class="modal-header">
-    <h3 class="modal-title">Editar Tarjeta [ID: {{usuario.id}}]</h3>
+    <h3 class="modal-title">Editar tabloide [ID: {{usuario.id}}]</h3>
 </div>
 <div class="modal-body">
     <form name="usuario_form" class="form-horizontal" role="form" novalidate>
-        <form-element label="tipo" mod="usuario">
+        <form-element label="Tipo" mod="usuario">
             <textarea class="form-control" name="tipo" placeholder="tipo" ng-model="usuario.tipo">{{usuario.tipo}}</textarea>
             <small class="errorMessage" ng-show="usuario_form.tipo.$dirty && usuario_form.tipo.$invalid"> Ingresa el tipo de producto.</small>
         </form-element>
 
         <form-element label="Piezas" mod="usuario">
-            <input type="text" class="form-control" name="piezas" placeholder="PIEZAS" ng-model="usuario.piezas" focus/>
+            <input type="text" class="form-control" name="piezas" placeholder="piezas" ng-model="usuario.piezas" focus/>
             <small class="errorMessage" ng-show="usuario_form.piezas.$dirty && usuario_form.piezas.$invalid"> Ingresa el numero de piezas.</small>
         </form-element>
 
-        <form-element label="precio" mod="usuario">
+        <form-element label="Precio" mod="usuario">
             <input type="text" class="form-control" name="precio" placeholder="precio" ng-model="usuario.precio" focus/>
             <small class="errorMessage" ng-show="usuario_form.precio.$dirty && usuario_form.precio.$invalid"> Ingresa el precio.</small>
         </form-element>

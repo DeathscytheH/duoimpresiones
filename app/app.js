@@ -26,6 +26,12 @@ app.config(['$routeProvider',
       templateUrl: 'tabloide/tabloide.html',
       controller: 'tabloideCtrl'
     })
+    //Fotobotones
+    .when('/fotobotones', {
+      title: 'Fotobotones',
+      templateUrl: 'fotobotones/fotobotones.html',
+      controller: 'fotobotonesCtrl'
+    })
     //Prueba
     .when('/prueba', {
       title: 'Pulseras',
