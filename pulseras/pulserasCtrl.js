@@ -41,7 +41,7 @@ app.controller('pulserasCtrl', function ($scope, $modal, $filter, Data) {
                     {text:"Descripcion",predicate:"descripcion",sortable:true},
                     {text:"Piezas",predicate:"piezas",sortable:true},
                     {text:"Precio",predicate:"precio",sortable:true},
-                    {text:"Precio Maq",predicate:"precioMaq",sortable:true},
+                    {text:"Precio Maquila",predicate:"precioMaq",sortable:true},
                     {text:"Accion",predicate:"",sortable:false}
                 ];
 
