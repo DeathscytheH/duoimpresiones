@@ -94,7 +94,11 @@ $app->delete('/pulseras_eventos/:id', function($id) {
 // Inicio - Tarjetas de presentacion
 $app->get('/tarjetas_presentacion', function() {
     global $db;
-    $rows = $db->select("tarjetas_presentacion","id, piezas, frente, frente_vuelta, plastico_frente, plastico_frente_vuelta, suaje",array());
+    $rows = $db->select("tarjetas_presentacion",
+                        "id, descripcion, piezas,
+                        frente, frente_vuelta, plastico_frente, plastico_frente_vuelta, suaje,
+                        frenteMaq, frente_vueltaMaq, plastico_frenteMaq, plastico_frente_vueltaMaq, suajeMaq",
+                        array());
     echoResponse(200, $rows);
 });
 

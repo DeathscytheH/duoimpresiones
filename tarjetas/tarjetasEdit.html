@@ -36,6 +36,33 @@
             <small class="errorMessage" ng-show="usuario_form.suaje.$dirty && usuario_form.suaje.$invalid"> Ingresa el numero de suaje.</small>
         </form-element>
 
+        <!-- Maquila -->
+        <form-element label="frente" mod="usuario">
+            <textarea class="form-control" name="frente" placeholder="frente" ng-model="usuario.frenteMaq">{{usuario.frenteMaq}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.frenteMaq.$dirty && usuario_form.frenteMaq.$invalid"> Ingresa el precio de frente</small>
+        </form-element>
+
+        <form-element label="frente_vueltaMaq" mod="usuario">
+            <input type="text" class="form-control" name="frente_vueltaMaq" placeholder="frente_vueltaMaq" ng-model="usuario.frente_vueltaMaq" focus/>
+            <small class="errorMessage" ng-show="usuario_form.frente_vueltaMaq.$dirty && usuario_form.frente_vueltaMaq.$invalid"> Ingresa el numero de piezas.</small>
+        </form-element>
+
+        <form-element label="plastico_frenteMaq" mod="usuario">
+            <textarea class="form-control" name="plastico_frenteMaq" placeholder="plastico_frenteMaq" ng-model="usuario.plastico_frenteMaq">{{usuario.plastico_frenteMaq}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.plastico_frenteMaq.$dirty && usuario_form.plastico_frenteMaq.$invalid"> Ingresa el precio de plastico frente.</small>
+        </form-element>
+
+        <form-element label="plastico_frente_vueltaMaq" mod="usuario">
+            <input type="text" class="form-control" name="plastico_frente_vueltaMaq" placeholder="plastico_frente_vueltaMaq" ng-model="usuario.plastico_frente_vueltaMaq" focus/>
+            <small class="errorMessage" ng-show="usuario_form.plastico_frente_vueltaMaq.$dirty && usuario_form.plastico_frente_vueltaMaq.$invalid"> Ingresa el precio de plastico frente/vuelta.</small>
+        </form-element>
+
+        <form-element label="suajeMaq" mod="usuario">
+            <input type="text" class="form-control" name="suajeMaq" placeholder="suaje Maquila" ng-model="usuario.suajeMaq" focus/>
+            <small class="errorMessage" ng-show="usuario_form.suajeMaq.$dirty && usuario_form.suajeMaq.$invalid"> Ingresa el numero de suaje.</small>
+        </form-element>
+        <!-- /Maquila -->
+
         <div class="space"></div>
         <div class="space-4"></div>
         <div class="modal-footer">

@@ -36,13 +36,19 @@ app.controller('tarjetasCtrl', function ($scope, $modal, $filter, Data) {
 
  $scope.columns = [
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
+                    {text:"Descripcion",predicate:"descripcion",sortable:true},
                     {text:"Piezas",predicate:"piezas",sortable:true},
                     {text:"Frente",predicate:"frente",sortable:true},
                     {text:"Frente/Vuelta",predicate:"frente/vuelta",sortable:true},
                     {text:"Plastico frente",predicate:"Plastico frente",sortable:true},
                     {text:"Plastico frente/vuelta",predicate:"Plastico frente/vuelta",sortable:true},
                     {text:"Suaje",predicate:"suaje",sortable:true},
-                    {text:"Accion",predicate:"",sortable:false}
+                    {text:"Frente Maquila",predicate:"frenteMaq",sortable:true},
+                    {text:"Frente/Vuelta Maquila",predicate:"frente/vueltaMaq",sortable:true},
+                    {text:"Plastico frente Maquila",predicate:"Plastico frente Maq",sortable:true},
+                    {text:"Plastico frente/vuelta Maquila",predicate:"Plastico frente/vuelta Maq",sortable:true},
+                    {text:"Suaje Maquila",predicate:"suaje Maq",sortable:true},
+                    {text:"Accion",predicate:"",sortable:false},
                 ];
 
 });

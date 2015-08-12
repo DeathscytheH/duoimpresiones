@@ -8,7 +8,7 @@
             <div class="sw-search">
                 <div class="nav-search" id="nav-search">
                     Filtro: <span class="input-icon">
-                        <input placeholder="Filtrar usuarios ..." class="nav-search-input" ng-model="filterUsuario" ng-change="resetLimit();"  autocomplete="off" type="text" style="width:300px;" focus>
+                        <input placeholder="Filtrar ..." class="nav-search-input" ng-model="filterUsuario" ng-change="resetLimit();"  autocomplete="off" type="text" style="width:300px;" focus>
                         <i class="search-icon fa fa-search nav-search-icon"></i>
                     </span>
                 </div>
@@ -29,12 +29,18 @@
 
                 <tr ng-repeat="c in usuarios | filter:filterUsuario | orderBy:'id'" id="{{c.id}}" animate-on-change='c.piezas' ng-animate=" 'animate'">
                     <td>{{c.id}}</td>
+                    <td>{{c.descripcion}}</td>
                     <td>{{c.piezas}}</td>
                     <td>{{c.frente}}</td>
                     <td>{{c.frente_vuelta}}</td>
                     <td>{{c.plastico_frente}}</td>
                     <td>{{c.plastico_frente_vuelta}}</td>
                     <td>{{c.suaje}}</td>
+                    <td>{{c.frenteMaq}}</td>
+                    <td>{{c.frente_vueltaMaq}}</td>
+                    <td>{{c.plastico_frenteMaq}}</td>
+                    <td>{{c.plastico_frente_vueltaMaq}}</td>
+                    <td>{{c.suajeMaq}}</td>
                     <td style="width:100px">
                         <div class="btn-group">
                             <button type="button" class="btn btn-default fa fa-edit" ng-click="open(c);"></button>
