@@ -172,7 +172,7 @@ $app->delete('/tabloide_color/:id', function($id) {
 // Inicio - Fotoboton
 $app->get('/fotobotones', function() {
     global $db;
-    $rows = $db->select("fotobotones","id, tamano, piezas, precio",array());
+    $rows = $db->select("fotobotones","id, descripcion, tamano, piezas, precio, precioMaq",array());
     echoResponse(200, $rows);
 });
 
