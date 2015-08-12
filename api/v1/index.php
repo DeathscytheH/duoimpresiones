@@ -135,7 +135,7 @@ $app->delete('/tarjetas_presentacion/:id', function($id) {
 // Inicio - Tabloide
 $app->get('/tabloide_color', function() {
     global $db;
-    $rows = $db->select("tabloide_color","id, tipo, piezas, precio",array());
+    $rows = $db->select("tabloide_color","id, descripcion, tipo, piezas, precio, precioMaq",array());
     echoResponse(200, $rows);
 });
 

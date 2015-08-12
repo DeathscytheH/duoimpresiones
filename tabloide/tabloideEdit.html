@@ -6,6 +6,10 @@
 </div>
 <div class="modal-body">
     <form name="usuario_form" class="form-horizontal" role="form" novalidate>
+        <form-element label="descripcion" mod="usuario">
+            <textarea class="form-control" name="descripcion" placeholder="descripcion" ng-model="usuario.descripcion">{{usuario.descripcion}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.descripcion.$dirty && usuario_form.descripcion.$invalid"> Ingresa la descripcion del producto.</small>
+        </form-element>
         <form-element label="Tipo" mod="usuario">
             <textarea class="form-control" name="tipo" placeholder="tipo" ng-model="usuario.tipo">{{usuario.tipo}}</textarea>
             <small class="errorMessage" ng-show="usuario_form.tipo.$dirty && usuario_form.tipo.$invalid"> Ingresa el tipo de producto.</small>
@@ -19,6 +23,11 @@
         <form-element label="Precio" mod="usuario">
             <input type="text" class="form-control" name="precio" placeholder="precio" ng-model="usuario.precio" focus/>
             <small class="errorMessage" ng-show="usuario_form.precio.$dirty && usuario_form.precio.$invalid"> Ingresa el precio.</small>
+        </form-element>
+
+        <form-element label="Precio Maquila" mod="usuario">
+            <input type="text" class="form-control" name="precioMaq" placeholder="Precio Maquila" ng-model="usuario.precioMaq" focus/>
+            <small class="errorMessage" ng-show="usuario_form.precioMaq.$dirty && usuario_form.precioMaq.$invalid"> Ingresa el precio.</small>
         </form-element>
 
         <div class="space"></div>
