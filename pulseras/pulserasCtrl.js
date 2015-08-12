@@ -28,16 +28,20 @@ app.controller('pulserasCtrl', function ($scope, $modal, $filter, Data) {
                 $scope.usuarios = $filter('orderBy')($scope.usuarios, 'id', 'reverse');
             }else if(selectedObject.save == "update"){
                 p.id = selectedObject.id;
+                p.descripcion = selectedObject.descripcion;
                 p.piezas = selectedObject.piezas;
                 p.precio = selectedObject.precio;
+                p.precioMaq = selectedObject.precioMaq;
             }
         });
     };
 
  $scope.columns = [
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
+                    {text:"Descripcion",predicate:"descripcion",sortable:true},
                     {text:"Piezas",predicate:"piezas",sortable:true},
                     {text:"Precio",predicate:"precio",sortable:true},
+                    {text:"Precio Maq",predicate:"precioMaq",sortable:true},
                     {text:"Accion",predicate:"",sortable:false}
                 ];
 

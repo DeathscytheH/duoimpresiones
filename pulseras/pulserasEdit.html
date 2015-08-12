@@ -13,7 +13,12 @@
 
         <form-element label="Precio" mod="usuario">
             <textarea class="form-control" name="precio" placeholder="PRECIO" ng-model="usuario.precio">{{usuario.precio}}</textarea>
-            <small class="errorMessage" ng-show="usuario_form.apellido_paterno.$dirty && usuario_form.apellido_paterno.$invalid"> Ingresa el precio</small>
+            <small class="errorMessage" ng-show="usuario_form.precio.$dirty && usuario_form.precio.$invalid"> Ingresa el precio</small>
+        </form-element>
+
+        <form-element label="Precio Maquila" mod="usuario">
+            <textarea class="form-control" name="precioMaq" placeholder="PRECIO MAQUILA" ng-model="usuario.precioMaq">{{usuario.precioMaq}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.precioMaq.$dirty && usuario_form.precioMaq.$invalid"> Ingresa el precio Maquila</small>
         </form-element>
 
         <div class="space"></div>

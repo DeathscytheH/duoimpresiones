@@ -57,7 +57,7 @@ $app->delete('/usuarios/:id', function($id) {
 // Inicio - Pulseras de eventos
 $app->get('/pulseras_eventos', function() {
     global $db;
-    $rows = $db->select("pulseras_eventos","id, piezas, precio",array());
+    $rows = $db->select("pulseras_eventos","id, descripcion, piezas, precio, precioMaq",array());
     echoResponse(200, $rows);
 });
 
