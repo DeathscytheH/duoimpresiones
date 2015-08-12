@@ -37,9 +37,11 @@ app.controller('fotobotonesCtrl', function ($scope, $modal, $filter, Data) {
 
  $scope.columns = [
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
+                    {text:"Descripcion",predicate:"descripcion",sortable:true},
                     {text:"Tamano",predicate:"tamano",sortable:true},
                     {text:"Piezas",predicate:"piezas",sortable:true},
                     {text:"Precio",predicate:"precio",sortable:true},
+                    {text:"Precio Maquila",predicate:"precioMaq",sortable:true},
                     {text:"Accion",predicate:"",sortable:false}
                 ];
 
