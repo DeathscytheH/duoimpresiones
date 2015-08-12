@@ -209,7 +209,7 @@ $app->delete('/fotobotones/:id', function($id) {
 // Inicio - Vinil corte
 $app->get('/vinil_corte', function() {
     global $db;
-    $rows = $db->select("vinil_corte","id, tamano, precio",array());
+    $rows = $db->select("vinil_corte","id, descripcion, tamano, precio, precioMaq",array());
     echoResponse(200, $rows);
 });
 

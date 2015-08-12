@@ -36,8 +36,10 @@ app.controller('vinilcorteCtrl', function ($scope, $modal, $filter, Data) {
 
  $scope.columns = [
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
+                    {text:"Descripcion",predicate:"descripcion",sortable:true},
                     {text:"Tamano",predicate:"tamano",sortable:true},
                     {text:"Precio",predicate:"precio",sortable:true},
+                    {text:"Precio Maquila",predicate:"precioMaq",sortable:true},
                     {text:"Accion",predicate:"",sortable:false}
                 ];
 
