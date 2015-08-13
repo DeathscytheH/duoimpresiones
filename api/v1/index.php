@@ -246,7 +246,7 @@ $app->delete('/vinil_corte/:id', function($id) {
 // Inicio - Volante blanco y negro
 $app->get('/volantebn', function() {
     global $db;
-    $rows = $db->select("volantebn","id, descripcion, tipo, precio, precioMaq",array());
+    $rows = $db->select("volante_blanco_negro","id, descripcion, tipo, precio, precioMaq",array());
     echoResponse(200, $rows);
 });
 
@@ -254,7 +254,7 @@ $app->post('/volantebn', function() use ($app) {
     $data = json_decode($app->request->getBody());
     $mandatory = array('tipo');
     global $db;
-    $rows = $db->insert("volantebn", $data, $mandatory);
+    $rows = $db->insert("volante_blanco_negro", $data, $mandatory);
     if($rows["status"]=="success")
         $rows["message"] = "Producto agregado con exito.";
     echoResponse(200, $rows);
@@ -265,7 +265,7 @@ $app->put('/volantebn/:id', function($id) use ($app) {
     $condition = array('id'=>$id);
     $mandatory = array();
     global $db;
-    $rows = $db->update("volantebn", $data, $condition, $mandatory);
+    $rows = $db->update("volante_blanco_negro", $data, $condition, $mandatory);
     if($rows["status"]=="success")
         $rows["message"] = "Informacion de producto actualizada con exito.";
     echoResponse(200, $rows);
@@ -273,7 +273,7 @@ $app->put('/volantebn/:id', function($id) use ($app) {
 
 $app->delete('/volantebn/:id', function($id) {
     global $db;
-    $rows = $db->delete("volantebn", array('id'=>$id));
+    $rows = $db->delete("volante_blanco_negro", array('id'=>$id));
     if($rows["status"]=="success")
         $rows["message"] = "Producto removido con exito.";
     echoResponse(200, $rows);
