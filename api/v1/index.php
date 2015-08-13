@@ -243,6 +243,43 @@ $app->delete('/vinil_corte/:id', function($id) {
 });
 // Fin - Vinil corte
 
+// Inicio - Volante blanco y negro
+$app->get('/volantebn', function() {
+    global $db;
+    $rows = $db->select("volantebn","id, descripcion, tipo, precio, precioMaq",array());
+    echoResponse(200, $rows);
+});
+
+$app->post('/volantebn', function() use ($app) {
+    $data = json_decode($app->request->getBody());
+    $mandatory = array('tipo');
+    global $db;
+    $rows = $db->insert("volantebn", $data, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto agregado con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->put('/volantebn/:id', function($id) use ($app) {
+    $data = json_decode($app->request->getBody());
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->update("volantebn", $data, $condition, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Informacion de producto actualizada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->delete('/volantebn/:id', function($id) {
+    global $db;
+    $rows = $db->delete("volantebn", array('id'=>$id));
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto removido con exito.";
+    echoResponse(200, $rows);
+});
+// Fin - Volante blanco y negro
+
 function echoResponse($status_code, $response) {
     global $app;
     $app->status($status_code);
