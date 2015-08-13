@@ -49,6 +49,11 @@ app.config(['$routeProvider',
       templateUrl: 'volantecolor/volantecolor.html',
       controller: 'volantecolorCtrl'
     })
+    .when('/gformato', {
+      title: 'Lonas/Viniles',
+      templateUrl: 'gformato/gformato.html',
+      controller: 'gformatoCtrl'
+    })
     //Prueba
     .when('/prueba', {
       title: 'Pulseras',
