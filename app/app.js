@@ -44,6 +44,11 @@ app.config(['$routeProvider',
       templateUrl: 'volantebn/volantebn.html',
       controller: 'volantebnCtrl'
     })
+    .when('/volantecolor', {
+      title: 'Volante color',
+      templateUrl: 'volantecolor/volantecolor.html',
+      controller: 'volantecolorCtrl'
+    })
     //Prueba
     .when('/prueba', {
       title: 'Pulseras',
