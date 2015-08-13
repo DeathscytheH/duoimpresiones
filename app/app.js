@@ -38,6 +38,12 @@ app.config(['$routeProvider',
       templateUrl: 'vinilcorte/vinilcorte.html',
       controller: 'vinilcorteCtrl'
     })
+    //Volante blanco y negro
+    .when('/volantebn', {
+      title: 'Volante blanco y negro',
+      templateUrl: 'volantebn/volantebn.html',
+      controller: 'volantebnCtrl'
+    })
     //Prueba
     .when('/prueba', {
       title: 'Pulseras',
