@@ -1,0 +1,61 @@
+<!--
+                    <td>{{c.id}}</td>
+                    <td>{{c.nombreCliente}}</td>
+                    <td>{{c.telCliente}}</td>
+                    <td>{{c.detallePedido}}</td>
+                    <td>{{c.precio}}</td>
+                    <td>{{c.archivo}}</td>
+                    <td>{{c.fechaEntrega}}</td>
+-->
+<button type="button" class="close" ng-click="cancel();">
+    <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+</button>
+<div class="modal-header">
+    <h3 class="modal-title">Editar venta [ID: {{usuario.id}}]</h3>
+</div>
+<div class="modal-body">
+    <form name="usuario_form" class="form-horizontal" role="form" novalidate>
+
+        <form-element label="nombreCliente" mod="usuario">
+            <textarea class="form-control" name="nombreCliente" placeholder="Nombre del cliente" ng-model="usuario.nombreCliente">{{usuario.nombreCliente}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.nombreCliente.$dirty && usuario_form.nombreCliente.$invalid"> Ingresa el nombre del cliente</small>
+        </form-element>
+
+        <form-element label="telCliente" mod="usuario">
+            <input type="text" class="form-control" name="telCliente" placeholder="telCliente" ng-model="usuario.telCliente" focus/>
+            <small class="errorMessage" ng-show="usuario_form.telCliente.$dirty && usuario_form.telCliente.$invalid"> Ingresa el telefono del cliente.</small>
+        </form-element>
+
+        <form-element label="detallePedido" mod="usuario">
+            <textarea class="form-control" name="detallePedido" placeholder="detallePedido" ng-model="usuario.detallePedido">{{usuario.detallePedido}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.detallePedido.$dirty && usuario_form.detallePedido.$invalid"> Ingresa los detalles del pedido</small>
+        </form-element>
+
+        <form-element label="Precio" mod="usuario">
+            <input type="text" class="form-control" name="precio" placeholder="Precio" ng-model="usuario.precio" focus/>
+            <small class="errorMessage" ng-show="usuario_form.precio.$dirty && usuario_form.precio.$invalid"> Ingresa el precio.</small>
+        </form-element>
+
+        <form-element label="archivo" mod="usuario">
+            <input type="file" class="form-control" name="archivo" placeholder="Subir archivo" ng-model="usuario.archivo" focus/>
+            <small class="errorMessage" ng-show="usuario_form.archivo.$dirty && usuario_form.archivo.$invalid"> Ingresa el archivo del pedido.</small>
+        </form-element>
+
+        <form-element label="fechaEntrega" mod="usuario">
+            <input type="date" class="form-control" name="fechaEntrega" placeholder="fechaEntrega" ng-model="usuario.fechaEntrega" focus/>
+            <small class="errorMessage" ng-show="usuario_form.fechaEntrega.$dirty && usuario_form.fechaEntrega.$invalid"> Ingresa la fecha de entrega.</small>
+        </form-element>
+        <div class="space"></div>
+        <div class="space-4"></div>
+        <div class="modal-footer">
+            <form-element label="">
+                <div class="text-right">
+                    <a class="btn btn-sm" ng-click="cancel()"><i class="ace-icon fa fa-reply"></i>Cancel</a>
+                    <button ng-click="saveUsuario(usuario);" ng-disabled="usuario_form.$invalid || enableUpdate" class="btn btn-sm btn-primary" type="submit">
+                        <i class="ace-icon fa fa-check"></i>{{buttonText}}
+                    </button>
+                </div>
+            </form-element>
+        </div>
+    </form>
+</div>

@@ -54,6 +54,11 @@ app.config(['$routeProvider',
       templateUrl: 'gformato/gformato.html',
       controller: 'gformatoCtrl'
     })
+    .when('/registroventas', {
+      title: 'Registro ventas',
+      templateUrl: 'registroVentas/registroventas.html',
+      controller: 'registroventasCtrl'
+    })
     //Prueba
     .when('/prueba', {
       title: 'Pulseras',
