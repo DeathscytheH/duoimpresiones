@@ -1,0 +1,236 @@
+.logo{
+    height: 100px;
+    width: 230px;
+    color: white;
+}
+
+.logop{
+    height: 500px;
+    width: 900px;
+    margin-top: 20px;
+    margin-left: 150px;
+}
+
+#user{
+    border: 5px solid white;
+    margin-top: 20px;
+    height: 50px;
+    width: 50px
+}
+
+#usuario{
+    color:white;
+    font-size: 20px;
+    margin-top: 20px;
+}
+#usuario:active{
+    background-color:#8E48B8;
+}
+
+body{
+    padding-top: 60px;
+}
+.sidebar{
+    display: none;
+    margin-top: 50px;
+}
+
+@media(min-width: 768px){
+    .sidebar{
+        position:fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 10px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: #600BAA ;
+        border-right: 1px solid #eee;
+        border-radius:2px;
+        border-style: groove;
+        border-color: #600BAA;
+    }
+}
+
+.nav-sidebar > li > a
+{
+    color: white;
+    padding-right: 0px;
+    padding-left: 0px;
+    background-color: #600BAA ;
+
+}
+.nav-sidebar > li > a:active,
+.nav-sidebar > li > a:focus,
+.nav-sidebar > li > a:hover{
+    background-color: #8D4FC2;
+    margin-left: -10px;
+    padding-left: 10px;
+    margin-right: -10px;
+    border-radius: 5px;
+}
+
+
+
+.navbar-fixed-top{
+ background-color: #9C60BF;
+}
+
+.glyphicon-shopping-cart{
+  margin-right: 10px;
+}
+
+.glyphicon-th-list{
+ margin-right: 10px;
+}
+
+.glyphicon-user{
+ margin-right: 10px;
+}
+
+.glyphicon-plus-sign{
+ margin-right: 10px;
+}
+
+.glyphicon-list-alt{
+ margin-right: 10px;
+}
+
+#aPulseras{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/pulceras2.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+}
+
+#aTabloides{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/tabloides.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+}
+
+#aVolantes{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/volantes.png);
+ background-repeat:no-repeat;
+ background-position:center;
+}
+
+#aLoVi{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/lonas.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+}
+
+#aFotoboton{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/fotoboton03.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+ margin-top: 20px;
+}
+
+#aVinil{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/vinilcorte.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+ margin-top: 20px;
+}
+
+#aTarjetas{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/tarjetas2.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+ margin-top: 20px;
+}
+
+#tArticulos{
+ margin-left: 60px;
+ font-size: 15px;
+ color:midnightblue;
+ font-family: sans-serif;
+}
+
+#fecha_final{
+ width: 38%;
+}
+
+#ventasTitulo{
+    margin-top: 60px;
+
+}
+
+.modal .modal-body {
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+#hora_final{
+ width: 24%;
+}
+
+#tiposLonas{
+ width: 50%;
+}
+
+#archivosS{
+ margin-top: 20px;
+}
+
+#subtemasLonas{
+ font-size: 20px;
+}
+
+#cantidadLonas{
+ width: 40%;
+}
+
+#largoLona{
+ width: 30%
+}
+
+#anchoLona{
+ width: 30%;
+}
+
+#precioLonas{
+ width: 40%;
+}
+
+#cuerpovolantes{
+margin-top: 40px
+}

@@ -1,0 +1,48 @@
+fieldset {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 20px;
+  }
+legend {
+  width: 300px;
+  color: whitesmoke;
+  background-color: #070763;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 10px 40px;
+  text-align: right;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+tr.detalle {
+  background-color: #070763;
+  color: whitesmoke;
+}
+hr {
+  height: 3px;
+  background-color: black;
+  margin-bottom: 0px;
+}
+label {
+    font-size: 18px;
+    font-family:sans-serif;
+}
+
+
+label.centrar {
+    display: block;
+    margin-top: 0px;
+    font-size: 24px;
+    text-align: center;
+}
+
+td.foot {
+   background-color:lightgray;
+   border:none;
+}
+
+label.fancy {
+    font-size: 24px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}

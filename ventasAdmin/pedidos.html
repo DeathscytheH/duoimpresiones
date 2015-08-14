@@ -1,0 +1,717 @@
+<h1 class="col-md-offset-4" id="ventasTitulo"> PEDIDOS (AREA DE VENTAS)</h1>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="col-md-12">
+            <h2>Seleccione un Articulo</h2>
+            <br>
+            <div class="col-md-2">
+                <input type="button" id="aPulseras" data-toggle="modal" data-target="#Nuevo_Pulsera">
+                <br>
+                <h3 id="tArticulos">Pulseras</h3>
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                <input type="button" id="aTabloides" data-toggle="modal" data-target="#Nuevo_Tabloide">
+                <br>
+                <h3 id="tArticulos">Tabloides</h3>
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                <input type="button" id="aVolantes" data-toggle="modal" data-target="#Nuevo_Volantes">
+                <br>
+                <h3 id="tArticulos">Volantes</h3>
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                <input type="button" id="aLoVi" data-toggle="modal" data-target="#Nuevo_Lonas">
+                <br>
+                <h3 id="tArticulos">Lonas/Viniles</h3>
+            </div>
+            <div class="col-md-2 col-md-offset-2">
+                <input type="button" id="aFotoBoton" data-toggle="modal" data-target="#Nuevo_FotoBotones">
+                <br>
+                <h3 id="tArticulos">FotoBotones</h3>
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                <input type="button" id="aVinil" data-toggle="modal" data-target=#Nuevo_Vinil>
+                <h3 id="tArticulos">Vinil de Corte</h3>
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                <input type="button" id="aTarjetas" data-toggle="modal" data-target="#Nuevo_Tarjetas">
+                <h3 id="tArticulos">Tarjetas de Presentacion</h3>
+            </div>
+        </div>
+    </div>
+
+    <!--modal tabloide-->
+    <div class="modal fade" id="Nuevo_Tabloide">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Nueva Compra de Tabloide</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="n_clienteTabloide">Nombre(Cliente)</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="n_ordenTabloide">Numero de Orden</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <label for="correo_Tabloide">Correo:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="tel_Tabloide">Telefono:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label>Tipo:</label>
+                                    <select name="tipos_tabloides" id="tabloides" class="form-control">
+                                        <option value="1">Couche 130</option>
+                                        <option value="2">Bond</option>
+                                        <option value="3">Papel Opalina</option>
+                                        <option value="4">Couche 200</option>
+                                        <option value="5">Couche 300</option>
+                                        <option value="6">Sulfatado</option>
+                                        <option value="7">Adhesivo</option>
+                                        <option value="8">Cartulina Opalina</option>
+                                        <option value="9">Eurokote</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="s_archivo">Subir Archivo</label>
+                                    <input type="file">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="p_lona">Precio:</label>
+                                    <br>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Fecha de Entrega:</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Crear Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--modal vinil-corte--->
+    <div class="modal fade" id="Nuevo_Vinil">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Nueva Compra de Vinil de Corte</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="n_clienteVinil">Nombre(Cliente):</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="n_ordenVinil">Numero de Orden:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label>Tamaño:</label>
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputAmount">Indique el tamaño</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="exampleInputAmount" placeholder="Tamaño">
+                                                <div class="input-group-addon">m^2</div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="correo_botones">Correo:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="tel_botones">Telefono:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="s_aLona">Subir Archivo</label>
+                                    <input type="file" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="c_botones">Cantidad:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="p_botones">Precio:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label>Fecha de Entrega:</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Crear Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---Modal FotoBotones--->
+    <div class="modal fade" id="Nuevo_FotoBotones">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Nueva Compra de FotoBotones</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="n_clienteBoton">Nombre(Cliente):</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="n_ordenBoton">Numero de Orden:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="t_botones">Tamaño:</label>
+                                    <br>
+                                    <input type="checkbox">
+                                    <label>5 CM</label>
+                                    <input type="checkbox">
+                                    <label>6 CM</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="correo_botones">Correo:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="tel_botones">Telefono:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="s_aLona">Subir Archivo</label>
+                                    <input type="file" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="c_botones">Cantidad:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="p_botones">Precio:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <label>Fecha de Entrega:</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Crear Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL LONAS-->
+    <div class="modal fade" id="Nuevo_Lonas">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Nueva Compra de Lonas</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6" id="panelvolante">
+                                    <label for="n_clienteLona">Nombre(Cliente)</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="n_ordenLona">Numero de Orden</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="correo_Lona">Correo:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-sm-5">
+                                    <label for="tel_Lona">Telefono:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label>Tipo:</label>
+                                    <select name="tipos_lonas" id="lonas_vinil" class="form-control">
+                                        <option value="1">Lona Laño</option>
+                                        <option value="2">Vinil</option>
+                                        <option value="3">Microperforado</option>
+                                        <option value="4">Lona Translucida</option>
+                                        <option value="5">Vinil Electro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="s_archivo">Subir Archivo</label>
+                                    <input type="file">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="c_lonas">Cantidad:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="m_lonas">Medidas:</label>
+                                    <br>
+                                    <label>Ancho:</label>
+                                    <input type="text" class="form-control">
+                                    <label>Largo:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-sm-3 col-sm-offset-1">
+                                    <label for="a_lonas">Acabado:</label>
+                                    <br>
+                                    <input type="checkbox">
+                                    <label for="bastilla">Bastilla</label>
+                                    <br>
+                                    <input type="checkbox">
+                                    <label for="ojillos">Ojillos</label>
+                                    <br>
+                                    <input type="checkbox">
+                                    <label for="otros">Otros</label>
+                                    <textarea class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="p_lona">Precio:</label>
+                                    <br>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label>Fecha de Entrega:</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Crear Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MMODAL TARJETAS-->
+
+    <div class="modal fade" id="Nuevo_Tarjetas">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Nueva Compra de Tarjetas</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="n_cliente">Nombre(Cliente)</label>
+                                        <input type="text" class="col-sm-7 form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="s_archivo">Subir Archivo</label>
+                                        <input type="file">
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="c_tarjetas">Cantidad:</label>
+                                        <input type="radio">
+                                        <label for="t_120">120</label>
+                                        <input type="radio">
+                                        <label for="t_500">500</label>
+                                        <input type="radio">
+                                        <label for="t_1000">1000</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="imp_lados">Impresion:</label>
+                                        <br>
+                                        <input type="radio">
+                                        <label>Frente</label>
+                                        <br>
+                                        <input type="radio">
+                                        <label>Frente/Vuelta</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="acabado">Acabado:</label>
+                                        <br>
+                                        <input type="radio">
+                                        <label>Plastico Frente</label>
+                                        <br>
+                                        <input type="radio">
+                                        <label>Plastico Frente/Vuelta</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="corte">Corte:</label>
+                                        <br>
+                                        <input type="radio">
+                                        <label>Suaje</label>
+                                        <br>
+                                        <input type="radio">
+                                        <label>Corte por Tabloide</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Precio:</label>
+                                        <input type="text" class="form-control">
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Fecha de Entrega:</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Crear Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL Pulceras-->
+    <div class="modal fade" id="Nuevo_Pulsera">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Nueva Compra de Pulseras</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group" id="f1000c">
+                                        <label for="nombreCliente" class="control-label">Nombre(Cliente):</label>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <input type="text" class=" col-sm-8 form-control" placeholder="Nombre Completo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="f1000c">
+                                        <label for="n_orden" class="control-label">Numero de Orden:</label>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <input type="text" class=" col-sm-3 form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="f1000c">
+                                        <label for="s_archivo" class="control-label">Subir Archivo:</label>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <input type="file" class=" col-sm-8 form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="f1000c">
+                                        <label for="Tel.celular" class="control-label">Telefono:</label>
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <input type="text" class=" col-sm-8 form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="row">
+                                        <div class="col-sm-5 col-sm-offset-3">
+                                            <div class="form-group" id="f1000c">
+                                                <label for="precio" class="control-label">Precio:</label>
+                                                <div class="row">
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class=" col-sm-10 form-control" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" id="f1000c">
+                                                <label for="fecha_entrega" class="control-label">Fecha de Entrega:</label>
+                                                <div class="row">
+                                                    <div class="col-sm-5">
+                                                        <input type="date">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-success">Crear Compra</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal de Volantes--->
+    <div class="modal fade" id="Nuevo_Volantes">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Nueva Compra  de Volantes</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6" id="cuerpovolantes">
+                                    <div class="form-group" id="f1000c">
+                                        <label for="nombreCliente" class="control-label">Nombre(Cliente):</label>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <input type="text" class=" col-sm-8 form-control" placeholder="Nombre Completo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="f1000c">
+                                        <label for="n_orden" class="control-label">Numero de Orden:</label>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <input type="text" class=" col-sm-3 form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="f1000c">
+                                        <label for="s_archivo" class="control-label">Subir Archivo:</label>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <input type="file" class=" col-sm-8 form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="f1000c">
+                                        <label for="Tel_celular" class="control-label">Telefono:</label>
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <input type="text" class=" col-sm-8 form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="f1000c">
+                                        <label for="precio" class="control-label">Precio:</label>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <input type="text" class=" col-sm-10 form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="f1000c">
+                                        <label for="fecha_entrega" class="control-label">Fecha de Entrega:</label>
+                                        <div class="row">
+                                            <div class="col-sm-7">
+                                                <input type="date" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Blanco y Negro</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label for="bln_ngr">Tipo:</label>
+                                                <br>
+                                                <input type="radio" id="carta_dup">
+                                                <label for="c_duplicado">1/2 Carta Duplicado</label>
+                                                <br>
+                                                <input type="radio" id="carta_off">
+                                                <label for="c_offset">1/2 Carta Offset</label>
+                                            </div>
+                                            <div class="from-group">
+                                                <label for="cantidad">Catidad:</label>
+                                                <br>
+                                                <input type="radio" id="un_millar">
+                                                <label for="1_millar">1 Millar</label>
+                                                <br>
+                                                <input type="radio" id="dos_millar">
+                                                <label for="2_millar">2 millar</label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Full Color</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label for="full_color">Tipo:</label>
+                                            <br>
+                                            <input type="radio" id="carta_1025">
+                                            <label for="c_1025">10 X 15cm</label>
+                                            <br>
+                                            <input type="radio" id="carta_12">
+                                            <label for="c_12">1/2 Carta</label>
+                                        </div>
+                                        <div class="from-group">
+                                            <label for="cantidad">Catidad:</label>
+                                            <br>
+                                            <input type="radio" id="q_pz">
+                                            <label for="quinientas">500 Pz</label>
+                                            <br>
+                                            <input type="radio" id="mil_pz">
+                                            <label for="mil">1000 Pz</label>
+                                            <br>
+                                            <input type="radio" id="dos_mil">
+                                            <label for="dosmil">2000 Pz</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Crear Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
