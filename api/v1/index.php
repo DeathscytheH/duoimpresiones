@@ -354,6 +354,42 @@ $app->delete('/gformato/:id', function($id) {
 });
 // Fin - Lona/vinil
 
+// Inicio - Ventas admin
+$app->get('/ventas_admin', function() {
+    global $db;
+    $rows = $db->select("ventas_admin","id, descripcion, piezas, precio, precioMaq",array());
+    echoResponse(200, $rows);
+});
+
+$app->post('/ventas_admin', function() use ($app) {
+    $data = json_decode($app->request->getBody());
+    $mandatory = array('piezas');
+    global $db;
+    $rows = $db->insert("ventas_admin", $data, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto agregado con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->put('/ventas_admin/:id', function($id) use ($app) {
+    $data = json_decode($app->request->getBody());
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->update("ventas_admin", $data, $condition, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Informacion de producto actualizada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->delete('/ventas_admin/:id', function($id) {
+    global $db;
+    $rows = $db->delete("pulseras_eventos", array('id'=>$id));
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto removido con exito.";
+    echoResponse(200, $rows);
+});
+// Fin - Ventas admin
 
 function echoResponse($status_code, $response) {
     global $app;
