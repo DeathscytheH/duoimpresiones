@@ -1,5 +1,5 @@
 <h1 class="col-md-offset-4" id="ventasTitulo"> PEDIDOS (AREA DE VENTAS)</h1>
-<div class="panel panel-default">
+<div class="panel panel-default" ng-controller="ventasController">
     <div class="panel-body">
         <div class="col-md-12">
             <h2>Seleccione un Articulo</h2>
@@ -519,67 +519,69 @@
                     <div class="panel-body">
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col-md-5">
-                                    <div class="form-group" id="f1000c">
-                                        <label for="nombreCliente" class="control-label">Nombre(Cliente):</label>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <input type="text" class=" col-sm-8 form-control" placeholder="Nombre Completo">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group" id="f1000c">
-                                        <label for="n_orden" class="control-label">Numero de Orden:</label>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <input type="text" class=" col-sm-3 form-control" placeholder="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group" id="f1000c">
-                                        <label for="s_archivo" class="control-label">Subir Archivo:</label>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <input type="file" class=" col-sm-8 form-control" placeholder="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group" id="f1000c">
-                                        <label for="Tel.celular" class="control-label">Telefono:</label>
-                                        <div class="row">
-                                            <div class="col-sm-8">
-                                                <input type="text" class=" col-sm-8 form-control" placeholder="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="row">
-                                        <div class="col-sm-5 col-sm-offset-3">
-                                            <div class="form-group" id="f1000c">
-                                                <label for="precio" class="control-label">Precio:</label>
-                                                <div class="row">
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class=" col-sm-10 form-control" placeholder="">
-                                                    </div>
+                                <form ng-submit="submit(pulserasForm)" name="pulserasForm" method="post" action="" class="form-horizontal" role="form">
+                                    <div class="col-md-5">
+                                        <div class="form-group" id="f1000c">
+                                            <label for="nombreCliente" class="control-label">Nombre(Cliente):</label>
+                                            <div class="row" ng-class="{ 'has-error': pulserasForm.nombre_cliente.$invalid && submitted }">
+                                                <div class="col-sm-12">
+                                                    <input ng-model="orden.nombre_cliente" type="text" class=" col-sm-8 form-control" placeholder="Nombre Completo" required>
                                                 </div>
                                             </div>
-                                            <div class="form-group" id="f1000c">
-                                                <label for="fecha_entrega" class="control-label">Fecha de Entrega:</label>
-                                                <div class="row">
-                                                    <div class="col-sm-5">
-                                                        <input type="date">
-                                                    </div>
+                                        </div>
+                                        <div class="form-group" id="f1000c">
+                                            <label for="s_archivo" class="control-label">Subir Archivo:</label>
+                                            <div class="row" ng-class="{ 'has-error': pulserasForm.archivo_subir.$invalid && submitted }">
+                                                <div class="col-sm-12">
+                                                    <input ng-model="orden.archivo_subir" type="file" class=" col-sm-8 form-control" placeholder="Subir archivo">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="f1000c">
+                                            <label for="Tel.celular" class="control-label">Telefono:</label>
+                                            <div class="row" ng-class="{ 'has-error': pulserasForm.tel_cliente.$invalid && submitted }">
+                                                <div class="col-sm-8">
+                                                    <input ng-model="orden.tel_cliente" type="text" class=" col-sm-8 form-control" placeholder="Tel cliente" required>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-sm-5 col-sm-offset-3">
+                                                <div class="form-group" id="f1000c">
+                                                    <label for="precio" class="control-label">Cantidad:</label>
+                                                    <div class="row" ng-class="{ 'has-error': pulserasForm.cantidad.$invalid && submitted }">
+                                                        <div class="col-sm-10">
+                                                            <input ng-model="orden.cantidad" type="text" class=" col-sm-10 form-control" placeholder="Cantidad" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" id="f1000c">
+                                                    <label for="precio" class="control-label">Precio:</label>
+                                                    <div class="row" ng-class="{ 'has-error': pulserasForm.archivo_subir.$invalid && submitted }">
+                                                        <div class="col-sm-10">
+                                                            <input ng-model="orden.precio" type="text" class=" col-sm-10 form-control" placeholder="Precio" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" id="f1000c">
+                                                    <label for="fecha_entrega" class="control-label">Fecha de Entrega:</label>
+                                                    <div class="row" ng-class="{ 'has-error': pulserasForm.archivo_subir.$invalid && submitted }">
+                                                        <div class="col-sm-5">
+                                                            <input ng-model="orden.fecha_entrega" type="date" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer col-md-12">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-default" ng-disabled="submitButtonDisabled" class="btn btn-success">Crear Compra</button>
+                                    </div>
+                                </form>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-success">Crear Compra</button>
                         </div>
                     </div>
                 </div>
@@ -715,3 +717,4 @@
             </div>
         </div>
     </div>
+</div>
