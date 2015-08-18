@@ -50,3 +50,10 @@ app.directive('animateOnChange', function($animate) {
       });
   }
 });
+
+app.directive('menuLateral', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/menu-lateral.html'
+    };
+});
