@@ -2,18 +2,18 @@
     <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
 </button>
 <div class="modal-header">
-    <h3 class="modal-title">Editar volante de color [ID: {{usuario.id}}]</h3>
+    <h3 class="modal-title">Editar variable [ID: {{usuario.id}}]</h3>
 </div>
 <div class="modal-body">
     <form name="usuario_form" class="form-horizontal" role="form" novalidate>
 
-        <form-element label="nombreVariable" mod="usuario">
-            <textarea class="form-control" name="nombreVariable" placeholder="Descripcion" ng-model="usuario.nombreVariable">{{usuario.nombreVariable}}</textarea>
+        <form-element label="Nombre de la variable" mod="usuario">
+            <textarea class="form-control" name="nombreVariable" placeholder="Descripcion unitaria" ng-model="usuario.nombreVariable">{{usuario.nombreVariable}}</textarea>
             <small class="errorMessage" ng-show="usuario_form.nombreVariable.$dirty && usuario_form.nombreVariable.$invalid"> Ingresa la descripcion de la variable.</small>
         </form-element>
 
-        <form-element label="tiempo" mod="usuario">
-            <input type="text" class="form-control" name="tiempo" placeholder="tiempo" ng-model="usuario.tiempo" focus/>
+        <form-element label="Tiempo" mod="usuario">
+            <input type="text" class="form-control" name="tiempo" placeholder="Tiempo en minutos" ng-model="usuario.tiempo" focus/>
             <small class="errorMessage" ng-show="usuario_form.tiempo.$dirty && usuario_form.tiempo.$invalid"> Ingresa el tiempo en minutos.</small>
         </form-element>
 

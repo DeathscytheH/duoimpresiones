@@ -61,7 +61,7 @@ app.config(['$routeProvider',
     })
     .when('/tiemposGranFormato', {
       title: 'Tiempo - Gran formato',
-      templateUrl: 'tiempos/gran_formato/tiempoGranFormato.html',
+      templateUrl: 'tiempos/gran_formato/tiemposGranFormato.html',
       controller: 'tiemposGranFormatoCtrl'
     })
     //Prueba
