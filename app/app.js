@@ -59,6 +59,11 @@ app.config(['$routeProvider',
       templateUrl: 'registroVentas/registroventas.html',
       controller: 'registroventasCtrl'
     })
+    .when('/tiemposGranFormato', {
+      title: 'Tiempo - Gran formato',
+      templateUrl: 'tiempos/gran_formato/tiempoGranFormato.html',
+      controller: 'tiemposGranFormatoCtrl'
+    })
     //Prueba
     .when('/prueba', {
       title: 'Pulseras',

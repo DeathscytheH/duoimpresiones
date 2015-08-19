@@ -391,6 +391,43 @@ $app->delete('/registroventas/:id', function($id) {
 });
 // Fin - Ventas admin
 
+// Inicio - Tiempos gran formato
+$app->get('/tiemposGranFormato', function() {
+    global $db;
+    $rows = $db->select("tiemposGranFormato","id, nombreVariable, tiempo",array());
+    echoResponse(200, $rows);
+});
+
+$app->post('/tiemposGranFormato', function() use ($app) {
+    $data = json_decode($app->request->getBody());
+    $mandatory = array('nombreVariable');
+    global $db;
+    $rows = $db->insert("tiemposGranFormato", $data, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Variable agregada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->put('/tiemposGranFormato/:id', function($id) use ($app) {
+    $data = json_decode($app->request->getBody());
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->update("tiemposGranFormato", $data, $condition, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Informacion de variable actualizada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->delete('/tiemposGranFormato/:id', function($id) {
+    global $db;
+    $rows = $db->delete("tiemposGranFormato", array('id'=>$id));
+    if($rows["status"]=="success")
+        $rows["message"] = "Variable removida con exito.";
+    echoResponse(200, $rows);
+});
+// Fin - Tiempos gran formato
+
 function echoResponse($status_code, $response) {
     global $app;
     $app->status($status_code);
