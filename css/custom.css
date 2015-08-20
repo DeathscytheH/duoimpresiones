@@ -309,3 +309,145 @@ input[type="color"] {
     margin-bottom: 20px;
     color: #999;
 }
+
+/*
+* CSS del area de pedidos
+*/
+
+
+#aPulseras{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/pulceras2.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+}
+
+#aTabloides{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/tabloides.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+}
+
+#aVolantes{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/volantes.png);
+ background-repeat:no-repeat;
+ background-position:center;
+}
+
+#aLoVi{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/lonas.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+}
+
+#aFotoboton{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/fotoboton03.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+ margin-top: 20px;
+}
+
+#aVinil{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/vinilcorte.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+ margin-top: 20px;
+}
+
+#aTarjetas{
+ height: 200px;
+ width: 200px;
+ border-radius: 20px;
+ font-size: 30px;
+ color: darkblue;
+ background-image:url(../img/tarjetas2.jpg);
+ background-repeat:no-repeat;
+ background-position:center;
+ margin-top: 20px;
+}
+
+#tArticulos{
+ margin-left: 60px;
+ font-size: 15px;
+ color:midnightblue;
+ font-family: sans-serif;
+}
+
+#fecha_final{
+ width: 38%;
+}
+
+#ventasTitulo{
+    margin-top: 60px;
+
+}
+
+.modal .modal-body {
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+#hora_final{
+ width: 24%;
+}
+
+#tiposLonas{
+ width: 50%;
+}
+
+#archivosS{
+ margin-top: 20px;
+}
+
+#subtemasLonas{
+ font-size: 20px;
+}
+
+#cantidadLonas{
+ width: 40%;
+}
+
+#largoLona{
+ width: 30%
+}
+
+#anchoLona{
+ width: 30%;
+}
+
+#precioLonas{
+ width: 40%;
+}
+
+#cuerpovolantes{
+margin-top: 40px
+}

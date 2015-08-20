@@ -69,6 +69,11 @@ app.config(['$routeProvider',
       templateUrl: 'tiempos/acabados/tiemposAcabados.html',
       controller: 'tiemposAcabadosCtrl'
     })
+    .when('/ventasMostrador', {
+      title: 'Ventas mostrador',
+      templateUrl: 'ventasAdmin/ventasMostrador.html',
+      //controller: 'ventasMostradorCtrl'
+    })
     //Prueba
     .when('/prueba', {
       title: 'Pulseras',
