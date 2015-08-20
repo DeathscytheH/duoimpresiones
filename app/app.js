@@ -72,7 +72,7 @@ app.config(['$routeProvider',
     .when('/ventasMostrador', {
       title: 'Ventas mostrador',
       templateUrl: 'ventasAdmin/ventasMostrador.html',
-      //controller: 'ventasMostradorCtrl'
+      controller: 'ventasMostradorCtrl'
     })
     //Prueba
     .when('/prueba', {
