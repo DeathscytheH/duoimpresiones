@@ -1,88 +1,107 @@
-<!--modal vinil-corte--->
-<div class="modal fade" id="Nuevo_Vinil">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Nueva Compra de Vinil de Corte</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <label for="n_clienteVinil">Nombre(Cliente):</label>
-                                <input type="text" class="form-control">
-                            </div>
+<!--MODAL LONAS-->
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Nueva Compra de Lonas</h3>
+            </div>
+            <div class="panel-body">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6" id="panelvolante">
+                            <label for="n_clienteLona">Nombre(Cliente)</label>
+                            <input type="text" class="form-control">
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <label for="n_ordenVinil">Numero de Orden:</label>
-                                <input type="text" class="form-control">
-                            </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label for="n_ordenLona">Numero de Orden</label>
+                            <input type="text" class="form-control">
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <label>Tamaño:</label>
-                                <form class="form-inline">
-                                    <div class="form-group">
-                                        <label class="sr-only" for="exampleInputAmount">Indique el tamaño</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Tamaño">
-                                            <div class="input-group-addon">m^2</div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="correo_Lona">Correo:</label>
+                            <input type="text" class="form-control">
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <label for="correo_botones">Correo:</label>
-                                <input type="text" class="form-control">
-                            </div>
+                        <div class="col-sm-5">
+                            <label for="tel_Lona">Telefono:</label>
+                            <input type="text" class="form-control">
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <label for="tel_botones">Telefono:</label>
-                                <input type="text" class="form-control">
-                            </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label>Tipo:</label>
+                            <select name="tipos_lonas" id="lonas_vinil" class="form-control">
+                                <option value="1">Lona 1 año</option>
+                                <option value="2">Vinil</option>
+                                <option value="3">Microperforado</option>
+                                <option value="4">Lona Translucida</option>
+                                <option value="5">Vinil Electro</option>
+                            </select>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <label for="s_aLona">Subir Archivo</label>
-                                <input type="file" class="form-control">
-                            </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label for="s_archivo">Subir Archivo</label>
+                            <input type="file">
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <label for="c_botones">Cantidad:</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-sm-4">
-                                <label for="p_botones">Precio:</label>
-                                <input type="text" class="form-control">
-                            </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label for="c_lonas">Cantidad:</label>
+                            <input type="text" class="form-control">
                         </div>
-                        <br>
-                        <div class="row">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label for="m_lonas">Medidas:</label>
+                            <br>
+                            <label>Ancho:</label>
+                            <input type="text" class="form-control">
+                            <label>Largo:</label>
+                            <input type="text" class="form-control">
                         </div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <label>Fecha de Entrega:</label>
-                                <input type="date" class="form-control">
-                            </div>
+                        <div class="col-sm-3 col-sm-offset-1">
+                            <label for="a_lonas">Acabado:</label>
+                            <br>
+                            <input type="checkbox">
+                            <label for="bastilla">Bastilla</label>
+                            <br>
+                            <input type="checkbox">
+                            <label for="ojillos">Ojillos</label>
+                            <br>
+                            <input type="checkbox">
+                            <label for="otros">Otros</label>
+                            <textarea class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label for="p_lona">Precio:</label>
+                            <br>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label>Fecha de Entrega:</label>
+                            <input type="date" class="form-control">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success">Crear Compra</button>
-            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
         </div>
     </div>
 </div>
