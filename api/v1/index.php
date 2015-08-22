@@ -323,12 +323,12 @@ $app->get('/gformato', function() {
     $rows = $db->select("gran_formato","id, descripcion, tipo, precio, precioMaq",array());
     echoResponse(200, $rows);
 });
-    //Prueba para get con id
+    //Funcion get con id
 $app->get('/gformato/:id', function($id) use ($app){
     $condition = array('id'=>$id);
     $mandatory = array();
     global $db;
-    $rows = $db->select("gran_formato", "descripcion, tipo, precio, precioMaq",$condition, $mandatory);
+    $rows = $db->select("gran_formato", "id, descripcion, tipo, precio, precioMaq",$condition, $mandatory);
     echoResponse(200, $rows);
 });
 

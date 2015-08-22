@@ -1,8 +1,4 @@
-app.controller('ventasMostradorCtrl', function ($scope, $modal, $filter, Data, $log) {
-    $scope.gFormato = {};
-    Data.get('gformato/1').then(function(data){
-        $scope.gFormatos = data.data;
-    });
+app.controller('ventasMostradorCtrl', function ($scope, $modal, $filter, $log) {
     $scope.items = ['item1', 'item2', 'item3'];
 
     $scope.animationsEnabled = true;
@@ -34,12 +30,12 @@ app.controller('ventasMostradorCtrl', function ($scope, $modal, $filter, Data, $
 
 });
 
-app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
+app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items, Data, $log) {
+    Data.get('gformato').then(function (data) {
+        gformato = data.data;
+        console.log(gformato.length);
 
-    $scope.items = items;
-    $scope.selected = {
-        item: $scope.items[0]
-    };
+    });
 
     $scope.ok = function () {
         $modalInstance.close($scope.selected.item);
