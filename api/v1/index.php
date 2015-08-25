@@ -320,7 +320,7 @@ $app->delete('/volantecolor/:id', function($id) {
 // Inicio - Lona/vinil
 $app->get('/gformato', function() {
     global $db;
-    $rows = $db->select("gran_formato","id, descripcion, tipo, precio, precioMaq",array());
+    $rows = $db->select("gran_formato","id, descripcion, tipo, piezas, precio, precioMaq",array());
     echoResponse(200, $rows);
 });
     //Funcion get con id

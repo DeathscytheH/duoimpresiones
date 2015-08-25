@@ -1,107 +1,109 @@
 <!--MODAL LONAS-->
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
-        <div class="panel panel-success">
-            <div class="panel-heading">
-                <h3 class="panel-title">Nueva Compra de Lonas</h3>
-            </div>
-            <div class="panel-body">
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-6" id="panelvolante">
-                            <label for="n_clienteLona">Nombre(Cliente)</label>
-                            <input type="text" class="form-control">
+        <form action="">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Nueva Compra de Lonas</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-6" id="panelvolante">
+                                <label for="n_clienteLona">Nombre(Cliente)</label>
+                                <input type="text" class="form-control">
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <label for="n_ordenLona">Numero de Orden</label>
-                            <input type="text" class="form-control">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="n_ordenLona">Numero de Orden</label>
+                                <input type="text" class="form-control">
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="correo_Lona">Correo:</label>
-                            <input type="text" class="form-control">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="correo_Lona">Correo:</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-sm-5">
+                                <label for="tel_Lona">Telefono:</label>
+                                <input type="text" class="form-control">
+                            </div>
                         </div>
-                        <div class="col-sm-5">
-                            <label for="tel_Lona">Telefono:</label>
-                            <input type="text" class="form-control">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label>Tipo:</label>
+                                <select name="tipos_lonas" id="lonas_vinil" class="form-control">
+                                    <option value="1">Lona 1 año</option>
+                                    <option value="2">Vinil</option>
+                                    <option value="3">Microperforado</option>
+                                    <option value="4">Lona Translucida</option>
+                                    <option value="5">Vinil Electro</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <label>Tipo:</label>
-                            <select name="tipos_lonas" id="lonas_vinil" class="form-control">
-                                <option value="1">Lona 1 año</option>
-                                <option value="2">Vinil</option>
-                                <option value="3">Microperforado</option>
-                                <option value="4">Lona Translucida</option>
-                                <option value="5">Vinil Electro</option>
-                            </select>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="s_archivo">Subir Archivo</label>
+                                <input type="file">
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <label for="s_archivo">Subir Archivo</label>
-                            <input type="file">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label for="c_lonas">Cantidad:</label>
+                                <input type="text" class="form-control">
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <label for="c_lonas">Cantidad:</label>
-                            <input type="text" class="form-control">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="m_lonas">Medidas:</label>
+                                <br>
+                                <label>Ancho:</label>
+                                <input type="text" class="form-control">
+                                <label>Largo:</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-sm-3 col-sm-offset-1">
+                                <label for="a_lonas">Acabado:</label>
+                                <br>
+                                <input type="checkbox">
+                                <label for="bastilla">Bastilla</label>
+                                <br>
+                                <input type="checkbox">
+                                <label for="ojillos">Ojillos</label>
+                                <br>
+                                <input type="checkbox">
+                                <label for="otros">Otros</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <label for="m_lonas">Medidas:</label>
-                            <br>
-                            <label>Ancho:</label>
-                            <input type="text" class="form-control">
-                            <label>Largo:</label>
-                            <input type="text" class="form-control">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="p_lona">Precio:</label>
+                                <br>
+                                <input type="text" class="form-control">
+                            </div>
                         </div>
-                        <div class="col-sm-3 col-sm-offset-1">
-                            <label for="a_lonas">Acabado:</label>
-                            <br>
-                            <input type="checkbox">
-                            <label for="bastilla">Bastilla</label>
-                            <br>
-                            <input type="checkbox">
-                            <label for="ojillos">Ojillos</label>
-                            <br>
-                            <input type="checkbox">
-                            <label for="otros">Otros</label>
-                            <textarea class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <label for="p_lona">Precio:</label>
-                            <br>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <label>Fecha de Entrega:</label>
-                            <input type="date" class="form-control">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label>Fecha de Entrega:</label>
+                                <input type="date" class="form-control">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            </div>
+        </form>
     </div>
 </div>
