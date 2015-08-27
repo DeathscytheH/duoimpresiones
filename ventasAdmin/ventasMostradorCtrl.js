@@ -1,6 +1,4 @@
 app.controller('ventasMostradorCtrl', function ($scope, $modal, $filter, $log) {
-    $scope.items = ['item1', 'item2', 'item3'];
-
     $scope.animationsEnabled = true;
 
     $scope.open = function (size) {
@@ -11,8 +9,8 @@ app.controller('ventasMostradorCtrl', function ($scope, $modal, $filter, $log) {
             controller: 'ModalInstanceCtrl',
             size: size,
             resolve: {
-                items: function () {
-                    return $scope.items;
+                item: function () {
+                    return size;
                 }
             }
         });
@@ -30,47 +28,62 @@ app.controller('ventasMostradorCtrl', function ($scope, $modal, $filter, $log) {
 
 });
 
-app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items, Data, $log) {
-    $scope.lonas = {};
+app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, item, Data, $log) {
+    $scope.lona = {};
+
+    $scope.pedidoLona = function (lona) {
+        Data.post('registroventas', lona).then(function (result) {
+            if (result.status != 'error') {
+                var x = angular.copy(lona);
+                x.save = 'insert';
+                x.id = result.data;
+                $modalInstance.close(x);
+            } else {
+                console.log(result);
+            }
+        });
+    };
+
+    $scope.ok = function () {
+        $modalInstance.close($scope.precio);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+
+    /*
     var precio;
     Data.get('gformato').then(function (data) {
         gformato = data.data;
         lonas = angular.fromJson(gformato);
-        angular.forEach(lonas, function(e){
-            if($scope.piezas <= e.piezas){
-                console.log("Entre 1-10 "+e.piezas+" "+$scope.piezas);
-                if(angular.equals($scope.tipo, e.tipo)){
-                    console.log("Si son iguales los tipos "+e.tipo+" "+$scope.tipo);
-                    if($scope.maquila){
-                        console.log("Si es maquila "+e.precioMaq+" "+$scope.maquila);
+        angular.forEach(lonas, function (e) {
+            if ($scope.piezas <= e.piezas) {
+                console.log("Entre 1-10 " + e.piezas + " " + $scope.piezas);
+                if (angular.equals($scope.tipo, e.tipo)) {
+                    console.log("Si son iguales los tipos " + e.tipo + " " + $scope.tipo);
+                    if ($scope.maquila) {
+                        console.log("Si es maquila " + e.precioMaq + " " + $scope.maquila);
                         $scope.precio = e.precioMaq;
                     } else {
-                        console.log("No es maquila "+e.precio+" "+$scope.maquila);
+                        console.log("No es maquila " + e.precio + " " + $scope.maquila);
                         $scope.precio = e.precio;
                     }
                 }
             } else {
-                console.log("Mayor de 10 "+e.piezas);
-                if(angular.equals($scope.tipo, e.tipo)){
-                    console.log("Si son iguales los tipo "+e.tipo);
-                    if($scope.maquila){
-                        console.log("Si es maquila "+e.precioMaq);
+                console.log("Mayor de 10 " + e.piezas);
+                if (angular.equals($scope.tipo, e.tipo)) {
+                    console.log("Si son iguales los tipo " + e.tipo);
+                    if ($scope.maquila) {
+                        console.log("Si es maquila " + e.precioMaq);
                         $scope.precio = e.precioMaq;
                     } else {
-                        console.log("No es maquila "+e.precio);
+                        console.log("No es maquila " + e.precio);
                         $scope.precio = e.precio;
                     }
                 }
             }
         });
 
-    });
-
-    $scope.ok = function () {
-        $modalInstance.close($scope.selected.item);
-    };
-
-    $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
-    };
+    });*/
 });
