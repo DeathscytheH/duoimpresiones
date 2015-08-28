@@ -19,18 +19,18 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="correo_Lona">Correo:</label>
-                                <input ng-model="lona.detalleCliente.email" type="text" class="form-control">
+                                <input ng-model="email" type="text" class="form-control">
                             </div>
                             <div class="col-sm-5">
                                 <label for="tel_Lona">Telefono:</label>
-                                <input ng-model="lona.detalleCliente.telefono" type="text" class="form-control">
+                                <input ng-model="telefono" type="text" class="form-control">
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-sm-4">
                                 <label>Tipo:</label>
-                                <select name="tipos_lonas" ng-model="lona.detallePedido.tipo" id="lonas_vinil" class="form-control">
+                                <select name="tipos_lonas" ng-model="tipo" id="lonas_vinil" class="form-control">
                                     <option value="Lona 1 año">Lona 1 año</option>
                                     <option value="Vinil">Vinil</option>
                                     <option value="Microperforado">Microperforado</option>
@@ -50,7 +50,7 @@
                         <br>
                         <div class="row">
                             <div class="col-sm-3">
-                                <label for="m_lonas">Medidas: {{ lona.detallePedido.ancho * lona.detallePedido.largo }} m2</label>
+                                <label for="m_lonas">Medidas: {{ ancho * largo }} m2</label>
                                 <br>
                                 <label>Ancho:</label>
                                 <input ng-model="ancho" type="text" class="form-control">
@@ -60,15 +60,15 @@
                             <div class="col-sm-3 col-sm-offset-1">
                                 <label for="a_lonas">Acabado:</label>
                                 <br>
-                                <input type="checkbox" ng-model="lona.detallePedido.bastilla">
+                                <input type="checkbox" ng-model="bastilla">
                                 <label for="bastilla">Bastilla</label>
                                 <br>
-                                <input ng-model="lona.detallePedido.ojillos" type="checkbox">
+                                <input ng-model="ojillos" type="checkbox">
                                 <label for="ojillos">Ojillos</label>
                                 <br>
                                 <input type="checkbox" ng-model="otros">
                                 <label for="otros">Otros</label>
-                                <textarea ng-model="lona.detallePedido.otros" ng-show="otros" class="form-control"></textarea>
+                                <textarea ng-model="otros1" ng-show="otros" class="form-control"></textarea>
                             </div>
                         </div>
                         <div class="row">

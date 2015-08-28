@@ -28,9 +28,14 @@ app.controller('ventasMostradorCtrl', function ($scope, $modal, $filter, $log) {
 
 });
 
-app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, item, Data, $log) {
-    $scope.lona = {};
-
+app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log) {
+    $scope.lona = {
+        //nombreCliente: $scope.nombreCliente,
+        //detalleCliente: $scope.mail + " " + $scope.tel,
+        //detallePedido: "Tipo - " + $scope.tipo + ";" + " Medidas - " + "Ancho: " + $scope.ancho + " Largo: " + $scope.largo + " Bastilla - " + $scope.bastilla + ";" + " Ojillos - " + $scope.ojillos + ";" + " Otros - " + $scope.otros1,
+        //precioTotal: $scope.precioTotal,
+        //fechaEntrega: $scope.fechaEntrega,
+    };
     $scope.pedidoLona = function (lona) {
         Data.post('registroventas', lona).then(function (result) {
             if (result.status != 'error') {
