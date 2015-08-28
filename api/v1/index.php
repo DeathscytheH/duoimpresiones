@@ -473,6 +473,43 @@ $app->delete('/tiemposAcabados/:id', function($id) {
 });
 // Fin - Tiempos gran formato
 
+// Inicio - Procesos prioridades
+$app->get('/procesosPrioridades', function() {
+    global $db;
+    $rows = $db->select("procesosPrioridades","id, nombre_proceso, prioridad_proceso",array());
+    echoResponse(200, $rows);
+});
+
+$app->post('/procesosPrioridades', function() use ($app) {
+    $data = json_decode($app->request->getBody());
+    $mandatory = array('nombre_proceso');
+    global $db;
+    $rows = $db->insert("procesosPrioridades", $data, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Proceso agregado con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->put('/procesosPrioridades/:id', function($id) use ($app) {
+    $data = json_decode($app->request->getBody());
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->update("procesosPrioridades", $data, $condition, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Informacion de proceso actualizada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->delete('/procesosPrioridades/:id', function($id) {
+    global $db;
+    $rows = $db->delete("procesosPrioridades", array('id'=>$id));
+    if($rows["status"]=="success")
+        $rows["message"] = "Variable removida con exito.";
+    echoResponse(200, $rows);
+});
+// Fin - Procesos prioridades
+
 function echoResponse($status_code, $response) {
     global $app;
     $app->status($status_code);
