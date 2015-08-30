@@ -27,10 +27,19 @@
                     <th ng-repeat="c in columns">{{c.text}}</th>
                 </tr>
 
-                <tr ng-repeat="c in usuarios | filter:filterUsuario | orderBy:'id'" id="{{c.id}}" animate-on-change='c.nombre_proceso + c.prioridad_proceso' ng-animate=" 'animate'">
+                <tr ng-repeat="c in usuarios | filter:filterUsuario | orderBy:'id'" id="{{c.id}}" animate-on-change='c.nombre_producto' ng-animate=" 'animate'">
                     <td>{{c.id}}</td>
-                    <td>{{c.nombre_proceso}}</td>
-                    <td>{{c.prioridad_proceso}}</td>
+                    <td>{{c.nombre_producto}}</td>
+                    <td>{{c.ventas}}</td>
+                    <td>{{c.diseño}}</td>
+                    <td>{{c.produccion}}</td>
+                    <td>{{c.gran_formato}}</td>
+                    <td>{{c.acabado}}</td>
+                    <td>{{c.offset_corte}}</td>
+                    <td>{{c.foliado}}</td>
+                    <td>{{c.entrega}}</td>
+                    <td>{{c.domicilio_instalacion}}</td>
+
 
                     <td style="width:100px">
                         <div class="btn-group">
