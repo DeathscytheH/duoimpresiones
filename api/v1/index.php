@@ -320,7 +320,7 @@ $app->delete('/volantecolor/:id', function($id) {
 // Inicio - Lona/vinil
 $app->get('/gformato', function() {
     global $db;
-    $rows = $db->select("gran_formato","id, descripcion, tipo, piezas, precio, precioMaq",array());
+    $rows = $db->select("gran_formato","id, descripcion, precio, valorExedente, precioMayoreo, precioMaq, precioMayoreoMaq",array());
     echoResponse(200, $rows);
 });
     //Funcion get con id
@@ -328,13 +328,13 @@ $app->get('/gformato/:id', function($id) use ($app){
     $condition = array('id'=>$id);
     $mandatory = array();
     global $db;
-    $rows = $db->select("gran_formato", "id, descripcion, tipo, precio, precioMaq",$condition, $mandatory);
+    $rows = $db->select("gran_formato", "id, descripcion, precio, valorExedente, precioMayoreo, precioMaq, precioMayoreoMaq",$condition, $mandatory);
     echoResponse(200, $rows);
 });
 
 $app->post('/gformato', function() use ($app) {
     $data = json_decode($app->request->getBody());
-    $mandatory = array('tipo');
+    $mandatory = array('descripcion');
     global $db;
     $rows = $db->insert("gran_formato", $data, $mandatory);
     if($rows["status"]=="success")

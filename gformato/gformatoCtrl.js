@@ -37,9 +37,11 @@ app.controller('gformatoCtrl', function ($scope, $modal, $filter, Data) {
  $scope.columns = [
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
                     {text:"Descripcion",predicate:"descripcion",sortable:true},
-                    {text:"Tipo",predicate:"tipo",sortable:true},
                     {text:"Precio",predicate:"precio",sortable:true},
+                    {text:"Valor exedente",predicate:"valorExedente",sortable:true},
+                    {text:"Precio mayoreo",predicate:"precioMayoreo",sortable:true},
                     {text:"Precio Maquila",predicate:"precioMaq",sortable:true},
+                    {text:"Precio mayoreo maquila",predicate:"precioMayoreoMaq",sortable:true},
                     {text:"Accion",predicate:"",sortable:false}
                 ];
 

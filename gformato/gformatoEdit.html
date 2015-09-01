@@ -12,20 +12,31 @@
             <small class="errorMessage" ng-show="usuario_form.descripcion.$dirty && usuario_form.descripcion.$invalid"> Ingresa la descripcion del producto.</small>
         </form-element>
 
-        <form-element label="Tipo" mod="usuario">
-            <input type="text" class="form-control" name="tipo" placeholder="tipo" ng-model="usuario.tipo" focus/>
-            <small class="errorMessage" ng-show="usuario_form.tipo.$dirty && usuario_form.tipo.$invalid"> Ingresa el numero de tipo.</small>
+        <form-element label="Precio" mod="usuario">
+            <textarea class="form-control" name="precio" placeholder="precio" ng-model="usuario.precio">{{usuario.precio}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.precio.$dirty && usuario_form.precio.$invalid"> Ingresa el precio</small>
         </form-element>
 
-        <form-element label="Precio" mod="usuario">
-            <textarea class="form-control" name="precio" placeholder="PRECIO" ng-model="usuario.precio">{{usuario.precio}}</textarea>
-            <small class="errorMessage" ng-show="usuario_form.apellido_paterno.$dirty && usuario_form.apellido_paterno.$invalid"> Ingresa el precio</small>
+        <form-element label="Valor exedente" mod="usuario">
+            <textarea class="form-control" name="valorExedente" placeholder="valor exedente" ng-model="usuario.valorExedente">{{usuario.valorExedente}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.valorExedente.$dirty && usuario_form.valorExedente.$invalid"> Ingresa el valor de material exedente.</small>
+        </form-element>
+
+        <form-element label="Precio mayoreo" mod="usuario">
+            <textarea class="form-control" name="precioMayoreo" placeholder="precio mayoreo" ng-model="usuario.precioMayoreo">{{usuario.precioMayoreo}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.precioMayoreo.$dirty && usuario_form.precioMayoreo.$invalid"> Ingresa el precio de mayoreo</small>
         </form-element>
 
         <form-element label="Precio Maquila" mod="usuario">
             <input type="text" class="form-control" name="precioMaq" placeholder="Precio Maquila" ng-model="usuario.precioMaq" focus/>
-            <small class="errorMessage" ng-show="usuario_form.precioMaq.$dirty && usuario_form.precioMaq.$invalid"> Ingresa el precio.</small>
+            <small class="errorMessage" ng-show="usuario_form.precioMaq.$dirty && usuario_form.precioMaq.$invalid"> Ingresa el precio para cliente maquila.</small>
         </form-element>
+
+        <form-element label="Precio mayoreo maquila" mod="usuario">
+            <input type="text" class="form-control" name="precioMayoreoMaq" placeholder="Precio mayoreo maquila" ng-model="usuario.precioMayoreoMaq" focus/>
+            <small class="errorMessage" ng-show="usuario_form.precioMayoreoMaq.$dirty && usuario_form.precioMayoreoMaq.$invalid"> Ingresa el precio de mayoreo para cliente maquila.</small>
+        </form-element>
+
         <div class="space"></div>
         <div class="space-4"></div>
         <div class="modal-footer">
