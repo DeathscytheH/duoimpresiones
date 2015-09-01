@@ -5,7 +5,7 @@ app.controller('procesosProductosCtrl', function ($scope, $modal, $filter, Data)
     });
 
     $scope.deleteUsuario = function (usuario) {
-        if (confirm("Estas seguro de eliminar la variable?")) {
+        if (confirm("Estas seguro de eliminar el producto?")) {
             Data.delete("procesosProductos/" + usuario.id).then(function (result) {
                 $scope.usuarios = _.without($scope.usuarios, _.findWhere($scope.usuarios, {
                     id: usuario.id
@@ -40,7 +40,7 @@ app.controller('procesosProductosCtrl', function ($scope, $modal, $filter, Data)
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
                     {text:"Nombre producto",predicate:"nombre_producto",sortable:true},
                     {text:"Ventas",predicate:"ventas",sortable:true},
-                    {text:"Diseño",predicate:"diseño",sortable:true},
+                    {text:"Diseno",predicate:"diseno",sortable:true},
                     {text:"Produccion",predicate:"produccion",sortable:true},
                     {text:"Gran formato",predicate:"gran_formato",sortable:true},
                     {text:"Acabado",predicate:"acabado",sortable:true},

@@ -511,36 +511,36 @@ $app->delete('/procesosPrioridades/:id', function($id) {
 // Fin - Procesos prioridades
 
 // Inicio - Procesos productos
-$app->get('/procesosProdcutos', function() {
+$app->get('/procesosProductos', function() {
     global $db;
-    $rows = $db->select("procesosProdcutos","id, nombre_producto, ventas, diseño, produccion, gran_formato, acabado, offset_corte, foliado, entrega, domicilio_instalacion",array());
+    $rows = $db->select("procesosProductos","id, nombre_producto, ventas, diseno, produccion, gran_formato, acabado, offset_corte, foliado, entrega, domicilio_instalacion",array());
     echoResponse(200, $rows);
 });
 
-$app->post('/procesosProdcutos', function() use ($app) {
+$app->post('/procesosProductos', function() use ($app) {
     $data = json_decode($app->request->getBody());
     $mandatory = array('nombre_producto');
     global $db;
-    $rows = $db->insert("procesosProdcutos", $data, $mandatory);
+    $rows = $db->insert("procesosProductos", $data, $mandatory);
     if($rows["status"]=="success")
         $rows["message"] = "Prodcuto agregado con exito.";
     echoResponse(200, $rows);
 });
 
-$app->put('/procesosProdcutos/:id', function($id) use ($app) {
+$app->put('/procesosProductos/:id', function($id) use ($app) {
     $data = json_decode($app->request->getBody());
     $condition = array('id'=>$id);
     $mandatory = array();
     global $db;
-    $rows = $db->update("procesosProdcutos", $data, $condition, $mandatory);
+    $rows = $db->update("procesosProductos", $data, $condition, $mandatory);
     if($rows["status"]=="success")
         $rows["message"] = "Informacion de producto actualizada con exito.";
     echoResponse(200, $rows);
 });
 
-$app->delete('/procesosProdcutos/:id', function($id) {
+$app->delete('/procesosProductos/:id', function($id) {
     global $db;
-    $rows = $db->delete("procesosProdcutos", array('id'=>$id));
+    $rows = $db->delete("procesosProductos", array('id'=>$id));
     if($rows["status"]=="success")
         $rows["message"] = "Producto removido con exito.";
     echoResponse(200, $rows);

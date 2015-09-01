@@ -7,54 +7,90 @@
 <div class="modal-body">
     <form name="usuario_form" class="form-horizontal" role="form" novalidate>
 
-        <form-element label="Nombre del proceso" mod="usuario">
-            <textarea class="form-control" name="nombre_proceso" placeholder="Descripcion" ng-model="usuario.nombre_proceso">{{usuario.nombre_proceso}}</textarea>
-            <small class="errorMessage" ng-show="usuario_form.nombre_proceso.$dirty && usuario_form.nombre_proceso.$invalid"> Ingresa la descripcion del proceso.</small>
+        <form-element label="Nombre del producto" mod="usuario">
+            <textarea class="form-control" name="nombre_producto" placeholder="Producto" ng-model="usuario.nombre_producto">{{usuario.nombre_producto}}</textarea>
+            <small class="errorMessage" ng-show="usuario_form.nombre_producto.$dirty && usuario_form.nombre_producto.$invalid"> Ingresa el nombre del producto.</small>
         </form-element>
 
-        <form-element label="Prioridad del proceso" mod="usuario">
-            <input type="text" class="form-control" name="prioridad_proceso" placeholder="Prioridad" ng-model="usuario.prioridad_proceso" focus/>
-            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la prioridad del proceso.</small>
+        <form-element label="Ventas" mod="usuario">
+            <select class="form-control" name="ventas" placeholder="Ventas" ng-model="usuario.ventas" focus>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+                <option value="opcional">Opcional</option>
+            </select>
+            <small class="errorMessage" ng-show="usuario_form.ventas.$dirty && usuario_form.ventas.$invalid"> Ingresa la opción del proceso.</small>
         </form-element>
 
-        <form-element label="Prioridad del proceso" mod="usuario">
-            <input type="text" class="form-control" name="prioridad_proceso" placeholder="Prioridad" ng-model="usuario.prioridad_proceso" focus/>
-            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la prioridad del proceso.</small>
+        <form-element label="Diseño" mod="usuario">
+            <select class="form-control" name="diseno" placeholder="Diseño" ng-model="usuario.diseno" focus>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+                <option value="opcional">Opcional</option>
+            </select>
+            <small class="errorMessage" ng-show="usuario_form.diseno.$dirty && usuario_form.diseno.$invalid"> Ingresa la opción del proceso.</small>
         </form-element>
 
-        <form-element label="Prioridad del proceso" mod="usuario">
-            <input type="text" class="form-control" name="prioridad_proceso" placeholder="Prioridad" ng-model="usuario.prioridad_proceso" focus/>
-            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la prioridad del proceso.</small>
+        <form-element label="Produccion" mod="usuario">
+            <select class="form-control" name="produccion" placeholder="Produccion" ng-model="usuario.produccion" focus>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+                <option value="opcional">Opcional</option>
+            </select>
+            <small class="errorMessage" ng-show="usuario_form.produccion.$dirty && usuario_form.produccion.$invalid"> Ingresa la opción del proceso.</small>
         </form-element>
 
-        <form-element label="Prioridad del proceso" mod="usuario">
-            <input type="text" class="form-control" name="prioridad_proceso" placeholder="Prioridad" ng-model="usuario.prioridad_proceso" focus/>
-            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la prioridad del proceso.</small>
+        <form-element label="Gran formato" mod="usuario">
+            <select class="form-control" name="gran_formato" placeholder="Gran formato" ng-model="usuario.gran_formato" focus>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+                <option value="opcional">Opcional</option>
+            </select>
+            <small class="errorMessage" ng-show="usuario_form.gran_formato.$dirty && usuario_form.gran_formato.$invalid"> Ingresa la opción del proceso.</small>
         </form-element>
 
-        <form-element label="Prioridad del proceso" mod="usuario">
-            <input type="text" class="form-control" name="prioridad_proceso" placeholder="Prioridad" ng-model="usuario.prioridad_proceso" focus/>
-            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la prioridad del proceso.</small>
+        <form-element label="Acabado" mod="usuario">
+            <select class="form-control" name="acabado" placeholder="Acabado" ng-model="usuario.acabado" focus>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+                <option value="opcional">Opcional</option>
+            </select>
+            <small class="errorMessage" ng-show="usuario_form.acabado.$dirty && usuario_form.acabado.$invalid"> Ingresa la opción del proceso.</small>
         </form-element>
 
-        <form-element label="Prioridad del proceso" mod="usuario">
-            <input type="text" class="form-control" name="prioridad_proceso" placeholder="Prioridad" ng-model="usuario.prioridad_proceso" focus/>
-            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la prioridad del proceso.</small>
+        <form-element label="Offset/Corte" mod="usuario">
+            <select class="form-control" name="Offset/Corte" placeholder="Offset/Corte" ng-model="usuario.offset_corte" focus>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+                <option value="opcional">Opcional</option>
+            </select>
+            <small class="errorMessage" ng-show="usuario_form.offset_corte.$dirty && usuario_form.offset_corte.$invalid"> Ingresa la opción del proceso.</small>
         </form-element>
 
-        <form-element label="Prioridad del proceso" mod="usuario">
-            <input type="text" class="form-control" name="prioridad_proceso" placeholder="Prioridad" ng-model="usuario.prioridad_proceso" focus/>
-            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la prioridad del proceso.</small>
+        <form-element label="Foliado" mod="usuario">
+            <select class="form-control" name="Foliado" placeholder="Foliado" ng-model="usuario.foliado" focus>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+                <option value="opcional">Opcional</option>
+            </select>
+            <small class="errorMessage" ng-show="usuario_form.foliado.$dirty && usuario_form.foliado.$invalid"> Ingresa la opción del proceso.</small>
         </form-element>
 
-        <form-element label="Prioridad del proceso" mod="usuario">
-            <input type="text" class="form-control" name="prioridad_proceso" placeholder="Prioridad" ng-model="usuario.prioridad_proceso" focus/>
-            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la prioridad del proceso.</small>
+        <form-element label="Entrega" mod="usuario">
+            <select class="form-control" name="Entrega" placeholder="Entrega" ng-model="usuario.entrega" focus>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+                <option value="opcional">Opcional</option>
+            </select>
+            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la opción del proceso.</small>
         </form-element>
 
-        <form-element label="Prioridad del proceso" mod="usuario">
-            <input type="text" class="form-control" name="prioridad_proceso" placeholder="Prioridad" ng-model="usuario.prioridad_proceso" focus/>
-            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la prioridad del proceso.</small>
+        <form-element label="Domicilio/Instalación" mod="usuario">
+            <select class="form-control" name="Domicilio/Instalación" placeholder="Domicilio/Instalación" ng-model="usuario.domicilio_instalacion" focus>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+                <option value="opcional">Opcional</option>
+            </select>
+            <small class="errorMessage" ng-show="usuario_form.domicilio_instalacion.$dirty && usuario_form.domicilio_instalacion.$invalid"> Ingresa la opción del proceso.</small>
         </form-element>
 
         <div class="space"></div>
