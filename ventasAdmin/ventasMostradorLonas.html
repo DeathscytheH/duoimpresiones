@@ -12,26 +12,26 @@
                         <div class="row">
                             <div class="col-sm-6" id="panelvolante">
                                 <label for="n_clienteLona">ID Cliente</label>
-                                <input ng-model="id_clinete" type="text" class="form-control">
+                                <input ng-model="id_cliente" type="text" class="form-control">
                                 <button class="btn btn-primary" type="button" ng-click="checkId(id_cliente)">Checar</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6" id="panelvolante">
-                                <label for="n_clienteLona">Nombre(Cliente)</label>
-                                <input ng-model="lona.nombreCliente" type="text" class="form-control">
+                                <label for="n_clienteLona">Nombre(Cliente): {{ cliente[0].nombre_completo }}</label>
+                                <textarea ng-hide="cliente[0].nombre_completo" class="form-control" name="Nombre" placeholder="Nombre" ng-model="lona.nombreCliente"></textarea>
                             </div>
                         </div>
                         <br>
                         <br>
                         <div class="row">
                             <div class="col-sm-6">
-                                <label for="correo_Lona">Correo:</label>
-                                <input ng-model="email" type="text" class="form-control">
+                                <label for="correo_Lona">Correo: {{cliente[0].email}}</label>
+                                <textarea ng-hide="cliente[0].email" class="form-control" name="telefono" ng-model="lona.email"></textarea>
                             </div>
                             <div class="col-sm-5">
-                                <label for="tel_Lona">Telefono:</label>
-                                <input ng-model="telefono" type="text" class="form-control">
+                                <label for="tel_Lona">Telefono: {{cliente[0].telefono}}</label>
+                                <textarea ng-hide="cliente[0].telefono" class="form-control" name="telefono" placeholder="telefono" ng-model="lona.telefono">{{cliente[0].telefono}}</textarea>
                             </div>
                         </div>
                         <br>

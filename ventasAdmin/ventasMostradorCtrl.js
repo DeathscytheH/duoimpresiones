@@ -36,6 +36,14 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
         //precioTotal: $scope.precioTotal,
         //fechaEntrega: $scope.fechaEntrega,
     };
+    $scope.cliente = {};
+    $scope.checkId = function (id_cliente){
+        Data.get('clientes/' + id_cliente).then(function (data) {
+            $scope.cliente = data.data;
+        });
+        return $scope.cliente;
+    };
+
     $scope.pedidoLona = function (lona) {
         Data.post('registroventas', lona).then(function (result) {
             if (result.status != 'error') {

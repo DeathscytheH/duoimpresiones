@@ -565,6 +565,15 @@ $app->get('/clientes', function() {
     echoResponse(200, $rows);
 });
 
+    //Funcion get con id
+$app->get('/clientes/:id', function($id) use ($app){
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->select("clientes", "id, nombre_completo, email, telefono, clienteMaquila",$condition, $mandatory);
+    echoResponse(200, $rows);
+});
+
 $app->post('/clientes', function() use ($app) {
     $data = json_decode($app->request->getBody());
     $mandatory = array('nombre_completo');
