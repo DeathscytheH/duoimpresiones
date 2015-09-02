@@ -558,6 +558,44 @@ $app->get('/gformato/:id', function($id) use ($app){
 });
 //Fin - Ventas mostrador Lonas
 
+// Inicio - Clientes de ventanilla
+$app->get('/clientes', function() {
+    global $db;
+    $rows = $db->select("clientes","id, nombre_completo, email, telefono, clienteMaquila, fechaRegistro",array());
+    echoResponse(200, $rows);
+});
+
+$app->post('/clientes', function() use ($app) {
+    $data = json_decode($app->request->getBody());
+    $mandatory = array('nombre_completo');
+    global $db;
+    $rows = $db->insert("clientes", $data, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Prodcuto agregado con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->put('/clientes/:id', function($id) use ($app) {
+    $data = json_decode($app->request->getBody());
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->update("clientes", $data, $condition, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Informacion de producto actualizada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->delete('/clientes/:id', function($id) {
+    global $db;
+    $rows = $db->delete("clientes", array('id'=>$id));
+    if($rows["status"]=="success")
+        $rows["message"] = "Producto removido con exito.";
+    echoResponse(200, $rows);
+});
+// Fin - Clientes de ventanilla
+
+
 function echoResponse($status_code, $response) {
     global $app;
     $app->status($status_code);
