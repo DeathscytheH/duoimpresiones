@@ -547,6 +547,17 @@ $app->delete('/procesosProductos/:id', function($id) {
 });
 // Fin - Procesos productos
 
+//Inicio - Ventas mostrador Lonas
+    //Funcion get con id
+$app->get('/gformato/:id', function($id) use ($app){
+    $condition = array('id'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->select("gran_formato", "id, descripcion, precio, valorExedente, precioMayoreo, precioMaq, precioMayoreoMaq",$condition, $mandatory);
+    echoResponse(200, $rows);
+});
+//Fin - Ventas mostrador Lonas
+
 function echoResponse($status_code, $response) {
     global $app;
     $app->status($status_code);
