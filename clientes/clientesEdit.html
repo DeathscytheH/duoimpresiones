@@ -23,7 +23,10 @@
         </form-element>
 
         <form-element label="Cliente maquila" mod="usuario">
-            <textarea class="form-control" name="clienteMaquila" placeholder="Cliente maquila" ng-model="usuario.clienteMaquila">{{usuario.clienteMaquila}}</textarea>
+            <select class="form-control" name="clienteMaquila" placeholder="Cliente maquila" ng-model="usuario.clienteMaquila" focus>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
             <small class="errorMessage" ng-show="usuario_form.clienteMaquila.$dirty && usuario_form.clienteMaquila.$invalid"> Ingresa los detalles del pedido</small>
         </form-element>
 
