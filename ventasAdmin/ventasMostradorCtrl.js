@@ -44,6 +44,17 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
         return $scope.cliente;
     };
 
+    $scope.registrarCliente = function(clienteVentana){
+        Data.post('clientes', clienteVentana).then(function (result) {
+            if(result.status != 'error'){
+                var x = angular.copy(clienteVentana);
+                x.save = 'insert';
+                x.id = result.data;
+            }else{
+                console.log(result);
+            }
+        });
+    };
     $scope.pedidoLona = function (lona) {
         Data.post('registroventas', lona).then(function (result) {
             if (result.status != 'error') {

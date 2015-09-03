@@ -8,18 +8,21 @@
                 </div>
                 <div class="panel-body">
                     <div class="modal-body">
-                       <!-- Zona cliente -->
+                        <!-- Zona cliente -->
                         <div class="row">
                             <div class="col-sm-6" id="panelvolante">
                                 <label for="n_clienteLona">ID Cliente</label>
                                 <input ng-model="id_cliente" type="text" class="form-control">
                                 <button class="btn btn-primary" type="button" ng-click="checkId(id_cliente)">Checar</button>
+
+                                <button class="btn btn-danger" ng-show="cliente.length == 0" type="button" ng-click="registrarCliente(clienteVentana)">Registrar</button>
+                                <small class="errorMessage" ng-show="cliente.length == 0">El usuario no existe. Registralo por favor.</small>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6" id="panelvolante">
                                 <label for="n_clienteLona">Nombre(Cliente): {{ cliente[0].nombre_completo }}</label>
-                                <textarea ng-hide="cliente[0].nombre_completo" class="form-control" name="Nombre" placeholder="Nombre" ng-model="lona.nombreCliente"></textarea>
+                                <textarea ng-hide="cliente[0].nombre_completo" class="form-control" name="Nombre" placeholder="Nombre" ng-model="clienteVentana.nombre_completo"></textarea>
                             </div>
                         </div>
                         <br>
@@ -27,11 +30,18 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="correo_Lona">Correo: {{cliente[0].email}}</label>
-                                <textarea ng-hide="cliente[0].email" class="form-control" name="telefono" ng-model="lona.email"></textarea>
+                                <textarea ng-hide="cliente[0].email" class="form-control" name="telefono" ng-model="clienteVentana.email"></textarea>
                             </div>
                             <div class="col-sm-5">
                                 <label for="tel_Lona">Telefono: {{cliente[0].telefono}}</label>
-                                <textarea ng-hide="cliente[0].telefono" class="form-control" name="telefono" placeholder="telefono" ng-model="lona.telefono">{{cliente[0].telefono}}</textarea>
+                                <textarea ng-hide="cliente[0].telefono" class="form-control" name="telefono" placeholder="telefono" ng-model="clienteVentana.telefono"></textarea>
+                            </div>
+                            <div class="col-sm-5">
+                                <label for="tel_Lona">Cliente maquila: {{cliente[0].clienteMaquila}}</label>
+                                <select ng-hide="cliente[0].clienteMaquila" class="form-control" name="clienteMaquila" ng-model="clienteVentana.clienteMaquila" focus>
+                                    <option value="si">Si</option>
+                                    <option value="no">No</option>
+                                </select>
                             </div>
                         </div>
                         <br>
