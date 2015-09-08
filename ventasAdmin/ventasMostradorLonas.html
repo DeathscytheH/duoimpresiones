@@ -14,9 +14,6 @@
                                 <label for="n_clienteLona">ID Cliente</label>
                                 <input ng-model="id_cliente" type="text" class="form-control">
                                 <button class="btn btn-primary" type="button" ng-click="checkId(id_cliente)">Checar</button>
-
-                                <button class="btn btn-danger" ng-show="cliente.length == 0" type="button" ng-click="registrarCliente(clienteVentana)">Registrar</button>
-                                <small class="errorMessage" ng-show="cliente.length == 0">El usuario no existe. Registralo por favor.</small>
                             </div>
                         </div>
                         <div class="row">
@@ -38,23 +35,23 @@
                             </div>
                             <div class="col-sm-5">
                                 <label for="tel_Lona">Cliente maquila: {{cliente[0].clienteMaquila}}</label>
-                                <select ng-hide="cliente[0].clienteMaquila" class="form-control" name="clienteMaquila" ng-model="clienteVentana.clienteMaquila" focus>
+                                <select ng-hide="cliente[0].telefono" class="form-control" name="clienteMaquila" ng-model="clienteVentana.clienteMaquila" focus>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
                                 </select>
                             </div>
                         </div>
                         <br>
+                        <button class="btn btn-danger" ng-show="cliente.length == 0" type="button" ng-click="registrarCliente(clienteVentana)">Registrar</button>
+                        <small class="errorMessage" ng-show="cliente.length == 0">El usuario no existe. Registralo por favor.</small>
+                        <!-- Termina Zona cliente -->
+                        <br>
+                        <!-- Zona pedido lona -->
                         <div class="row">
                             <div class="col-sm-4">
                                 <label>Tipo:</label>
-                                <select name="tipos_lonas" ng-model="tipo" id="lonas_vinil" class="form-control">
-                                    <option value="Lona 1 año">Lona 1 año</option>
-                                    <option value="Vinil">Vinil</option>
-                                    <option value="Microperforado">Microperforado</option>
-                                    <option value="Lona translucida">Lona Translucida</option>
-                                    <option value="Vinil electro">Vinil Electro</option>
-                                </select>
+                                <select name="tipos_lonas" id="tipos_lonas" ng-model="tipo" class="form-control" data-ng-options="lona.descripcion for lona in lonas"></select>
+                                {{ tipo }}
                             </div>
                         </div>
                         <br>
@@ -102,12 +99,12 @@
                                 <input type="date" class="form-control" ng-model="lona.fechaEntrega">
                             </div>
                         </div>
+                        {{ lona }}
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" type="button" ng-click="pedidoLona(lona)">Pedido</button>
-                <button class="btn btn-primary" type="button" ng-click="ok()">OK1</button>
                 <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
             </div>
         </form>
