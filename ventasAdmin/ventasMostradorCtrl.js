@@ -29,14 +29,22 @@ app.controller('ventasMostradorCtrl', function ($scope, $modal, $filter, $log) {
 });
 
 app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log) {
-    $scope.cliente = {};
+    $scope.cliente = {
+        nombre_completo:'',
+        email:'',
+        telefono:'',
+    };
 
-    $scope.lona = {};
+    $scope.lona = {
+        nombreCliente:'',
+        detalleCliente:'',
+    };
 
     //Checar id del cliente, si existe regresa sus datos.
     $scope.checkId = function (id_cliente){
         Data.get('clientes/' + id_cliente).then(function (data) {
-            $scope.cliente = data.data;
+            $scope.clientes = data.data;
+            $scope.cliente = $scope.clientes[0];
         });
         return $scope.cliente;
     };
@@ -47,9 +55,13 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
     });
 
     //watchGroup para cambiar valores.
-
-    $scope.$watchGroup('cliente', function(newValues, oldValues, scope){
-        lona.nombreCliente = cliente[0].nombre_completo;
+    $scope.$watchCollection('cliente', function(newValues, oldValues){
+        if($scope.cliente.nombre_completo){
+            $scope.lona.nombreCliente = $scope.cliente.nombre_completo;
+        } else {
+            $scope.lona.nombreCliente = '';
+        }
+        $scope.lona.detalleCliente = 'Email: '+$scope.cliente.email+' | '+'Telefono: '+$scope.cliente.telefono;
     });
 
     //Registra los datos del cliente.
