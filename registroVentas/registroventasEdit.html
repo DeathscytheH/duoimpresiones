@@ -21,9 +21,9 @@
             <small class="errorMessage" ng-show="usuario_form.nombreCliente.$dirty && usuario_form.nombreCliente.$invalid"> Ingresa el nombre del cliente</small>
         </form-element>
 
-        <form-element label="telCliente" mod="usuario">
-            <input type="text" class="form-control" name="telCliente" placeholder="telCliente" ng-model="usuario.telCliente" focus/>
-            <small class="errorMessage" ng-show="usuario_form.telCliente.$dirty && usuario_form.telCliente.$invalid"> Ingresa el telefono del cliente.</small>
+        <form-element label="detalleCliente" mod="usuario">
+            <input type="text" class="form-control" name="detalleCliente" placeholder="detalleCliente" ng-model="usuario.detalleCliente" focus/>
+            <small class="errorMessage" ng-show="usuario_form.detalleCliente.$dirty && usuario_form.detalleCliente.$invalid"> Ingresa los detalles del cliente.</small>
         </form-element>
 
         <form-element label="detallePedido" mod="usuario">
@@ -32,8 +32,8 @@
         </form-element>
 
         <form-element label="Precio" mod="usuario">
-            <input type="text" class="form-control" name="precio" placeholder="Precio" ng-model="usuario.precio" focus/>
-            <small class="errorMessage" ng-show="usuario_form.precio.$dirty && usuario_form.precio.$invalid"> Ingresa el precio.</small>
+            <input type="text" class="form-control" name="precio" placeholder="Precio" ng-model="usuario.precioTotal" focus/>
+            <small class="errorMessage" ng-show="usuario_form.precioTotal.$dirty && usuario_form.precioTotal.$invalid"> Ingresa el precio.</small>
         </form-element>
 
         <form-element label="archivo" mod="usuario">

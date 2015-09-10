@@ -65,7 +65,7 @@
                         <br>
                         <div class="row">
                             <div class="col-sm-3">
-                                <label for="m_lonas">Medidas: {{ ancho * largo }} m2</label>
+                                <label for="m_lonas">Medidas: {{ area }} m2</label>
                                 <br>
                                 <label>Ancho:</label>
                                 <input ng-model="ancho" type="text" class="form-control">
@@ -75,10 +75,10 @@
                             <div class="col-sm-3 col-sm-offset-1">
                                 <label for="a_lonas">Acabado:</label>
                                 <br>
-                                <input type="checkbox" ng-model="bastilla">
+                                <input type="checkbox" ng-model="bastilla" ng-true-value="'SI'" ng-false-value="'NO'">
                                 <label for="bastilla">Bastilla</label>
                                 <br>
-                                <input ng-model="ojillos" type="checkbox">
+                                <input ng-model="ojillos" type="checkbox" ng-true-value="'SI'" ng-false-value="'NO'">
                                 <label for="ojillos">Ojillos</label>
                                 <br>
                                 <input type="checkbox" ng-model="otros">

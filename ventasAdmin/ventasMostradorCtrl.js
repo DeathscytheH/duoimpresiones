@@ -35,16 +35,35 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
         telefono:'',
     };
 
+    $scope.tipo = '';
+
+    $scope.largo = 0;
+    $scope.ancho = 0;
+    $scope.area = 0;
+    $scope.bastilla = 'NO';
+    $scope.ojillos = 'NO';
+    $scope.otros1 = '';
+
+    $scope.pedido = {
+
+    };
+
     $scope.lona = {
         nombreCliente:'',
         detalleCliente:'',
+        detallePedido:'',
     };
 
     //Checar id del cliente, si existe regresa sus datos.
     $scope.checkId = function (id_cliente){
         Data.get('clientes/' + id_cliente).then(function (data) {
             $scope.clientes = data.data;
-            $scope.cliente = $scope.clientes[0];
+            if($scope.clientes[0]){
+                $scope.cliente = $scope.clientes[0];
+            } else {
+                $scope.cliente = [];
+            }
+
         });
         return $scope.cliente;
     };
@@ -56,12 +75,15 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
 
     //watchGroup para cambiar valores.
     $scope.$watchCollection('cliente', function(newValues, oldValues){
-        if($scope.cliente.nombre_completo){
-            $scope.lona.nombreCliente = $scope.cliente.nombre_completo;
-        } else {
-            $scope.lona.nombreCliente = '';
-        }
+        $scope.lona.nombreCliente = $scope.cliente.nombre_completo;
         $scope.lona.detalleCliente = 'Email: '+$scope.cliente.email+' | '+'Telefono: '+$scope.cliente.telefono;
+    });
+
+    $scope.$watchGroup(['tipo','largo','ancho','bastilla','ojillos','otros1'], function(newValues, oldValues){
+        $scope.area = $scope.largo * $scope.ancho;
+
+        $scope.lona.detallePedido = 'Tipo: '+$scope.tipo.descripcion+'| Area: '+$scope.area+'m2 | Largo: '+$scope.largo+'m | Ancho: '+$scope.ancho+'m | Bastilla: '+$scope.bastilla+' | Ojillos: '+$scope.ojillos+' | Otros: '+$scope.otros1;
+
     });
 
     //Registra los datos del cliente.

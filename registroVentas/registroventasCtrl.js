@@ -37,10 +37,10 @@ app.controller('registroventasCtrl', function ($scope, $modal, $filter, Data) {
  $scope.columns = [
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
                     {text:"Nombre del cliente",predicate:"nombreCliente",sortable:true},
-                    {text:"Telefono del cliente",predicate:"telCliente",sortable:true},
+                    {text:"Detalles del cliente",predicate:"detalleCliente",sortable:true},
                     {text:"Detalles del pedido",predicate:"detallePedido",sortable:true},
                     {text:"Fecha de registro",predicate:"fechaRegistro",sortable:true},
-                    {text:"Precio",predicate:"precio",sortable:true},
+                    {text:"Precio",predicate:"precioTotal",sortable:true},
                     {text:"Archivo",predicate:"archivo",sortable:true},
                     {text:"Fecha de entrega",predicate:"fechaEntrega",sortable:true},
                     {text:"Accion",predicate:"",sortable:false}
