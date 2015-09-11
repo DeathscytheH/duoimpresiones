@@ -29,6 +29,10 @@ app.controller('ventasMostradorCtrl', function ($scope, $modal, $filter, $log) {
 });
 
 app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log) {
+    /**/
+    Data.get('procesosLonas').then(function(data){
+        $scope.procesos = data.data;
+    });
     $scope.cliente = {
         nombre_completo:'',
         email:'',

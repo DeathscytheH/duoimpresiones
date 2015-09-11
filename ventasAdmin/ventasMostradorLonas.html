@@ -98,6 +98,17 @@
                                 <input type="date" class="form-control" ng-model="lona.fechaEntrega" min="{{date | date:'yyyy-MM-dd'}}">
                             </div>
                         </div>
+                        <!-- Zona de procesos. -->
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="procesos">Procesos</label>
+                                <span ng-repeat="proceso in procesos">
+                                    <input type="checkbox" value="{{proceso.lona}}" ng-true-value="1" ng-false-value="2">
+                                    <label for="proceso.nombre_proceso">{{ proceso.nombre_proceso }} {{ proceso.lona }}</label>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Zona de procesos. -->
                     </div>
                 </div>
             </div>
