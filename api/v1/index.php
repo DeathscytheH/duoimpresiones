@@ -476,7 +476,7 @@ $app->delete('/tiemposAcabados/:id', function($id) {
 // Inicio - Procesos prioridades
 $app->get('/procesosPrioridades', function() {
     global $db;
-    $rows = $db->select("procesosPrioridades","id, nombre_proceso, prioridad_proceso",array());
+    $rows = $db->select("procesosPrioridades","id, nombre_proceso, prioridad_proceso, lona",array());
     echoResponse(200, $rows);
 });
 

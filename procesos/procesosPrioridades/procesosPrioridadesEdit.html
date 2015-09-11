@@ -13,9 +13,21 @@
         </form-element>
 
         <form-element label="Prioridad del proceso" mod="usuario">
-            <input type="text" class="form-control" name="prioridad_proceso" placeholder="Prioridad" ng-model="usuario.prioridad_proceso" focus/>
-            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la prioridad del proceso.</small>
+            <select class="form-control" name="prioridad_proceso" placeholder="Prioridad" ng-model="usuario.prioridad_proceso" focus>
+                <option ng-repeat="option in [0,1,2,3,4,5,6,7,8]" value="{{option}}">{{option}}</option>
+            </select>
+            <small class="errorMessage" ng-show="usuario_form.prioridad_proceso.$dirty && usuario_form.prioridad_proceso.$invalid"> Ingresa la opción del proceso.</small>
         </form-element>
+
+        <form-element label="Lona" mod="usuario">
+            <select class="form-control" name="lona" placeholder="Prioridad" ng-model="usuario.lona" focus>
+                <option value=1>Si</option>
+                <option value=0>No</option>
+                <option value=2>Opcional</option>
+            </select>
+            <small class="errorMessage" ng-show="usuario_form.lona.$dirty && usuario_form.lona.$invalid"> Ingresa si va el proceso.</small>
+        </form-element>
+
 
         <div class="space"></div>
         <div class="space-4"></div>

@@ -38,6 +38,7 @@ app.controller('procesosPrioridadesCtrl', function ($scope, $modal, $filter, Dat
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
                     {text:"Descripcion",predicate:"nombre_proceso",sortable:true},
                     {text:"Prioridad",predicate:"prioridad_proceso",sortable:true},
+                    {text:"Lona",predicate:"lona",sortable:true},
                     {text:"Accion",predicate:"",sortable:false}
                 ];
 

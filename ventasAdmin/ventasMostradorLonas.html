@@ -51,7 +51,6 @@
                             <div class="col-sm-4">
                                 <label>Tipo:</label>
                                 <select name="tipos_lonas" id="tipos_lonas" ng-model="tipo" class="form-control" data-ng-options="lona.descripcion for lona in lonas"></select>
-                                {{ tipo }}
                             </div>
                         </div>
                         <br>
@@ -96,13 +95,9 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <label>Fecha de Entrega:</label>
-                                <input type="date" class="form-control" ng-model="lona.fechaEntrega">
+                                <input type="date" class="form-control" ng-model="lona.fechaEntrega" min="{{date | date:'yyyy-MM-dd'}}">
                             </div>
                         </div>
-                        cliente
-                        {{ cliente }}
-                        lona
-                        {{ lona }}
                     </div>
                 </div>
             </div>

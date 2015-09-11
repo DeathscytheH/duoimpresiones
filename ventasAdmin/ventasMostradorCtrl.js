@@ -43,6 +43,7 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
     $scope.bastilla = 'NO';
     $scope.ojillos = 'NO';
     $scope.otros1 = '';
+    $scope.date = new Date();
 
     $scope.pedido = {
 
