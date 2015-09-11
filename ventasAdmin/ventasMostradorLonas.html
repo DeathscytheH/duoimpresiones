@@ -99,13 +99,15 @@
                             </div>
                         </div>
                         <!-- Zona de procesos. -->
+                        <br>
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <label for="procesos">Procesos</label>
-                                <span ng-repeat="proceso in procesos">
-                                    <input type="checkbox" value="{{proceso.lona}}" ng-true-value="1" ng-false-value="2">
+                                <br>
+                                <div ng-repeat="proceso in procesos">
+                                    <input type="checkbox" ng-true-value="1" ng-false-value="2" value="{{proceso.lona}}" ng-checked="proceso.lona == 1">
                                     <label for="proceso.nombre_proceso">{{ proceso.nombre_proceso }} {{ proceso.lona }}</label>
-                                </span>
+                                </div>
                             </div>
                         </div>
                         <!-- Zona de procesos. -->

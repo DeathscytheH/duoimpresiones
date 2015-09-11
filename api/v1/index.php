@@ -556,7 +556,7 @@ $app->get('/gformato/:id', function($id) use ($app){
     $rows = $db->select("gran_formato", "id, descripcion, precio, valorExedente, precioMayoreo, precioMaq, precioMayoreoMaq",$condition, $mandatory);
     echoResponse(200, $rows);
 });
-//funcion con where
+    //funcion con where
 $app->get('/procesosLonas', function() {
     global $db;
     $rows = $db->select3("procesosPrioridades","nombre_proceso, prioridad_proceso, lona", array('lona'=>'0'),'>');
