@@ -365,7 +365,7 @@ $app->delete('/gformato/:id', function($id) {
 // Inicio - Ventas admin
 $app->get('/registroventas', function() {
     global $db;
-    $rows = $db->select("registroventas","id, nombreCliente, detalleCliente, detallePedido, fechaRegistro, precioTotal, archivo, fechaEntrega",array());
+    $rows = $db->select("registroventas","id, nombreCliente, detalleCliente, detallePedido, fechaRegistro, precioTotal, archivo, status, fechaEntrega",array());
     echoResponse(200, $rows);
 });
 

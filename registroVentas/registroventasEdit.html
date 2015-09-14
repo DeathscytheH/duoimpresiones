@@ -1,12 +1,3 @@
-<!--
-                    <td>{{c.id}}</td>
-                    <td>{{c.nombreCliente}}</td>
-                    <td>{{c.telCliente}}</td>
-                    <td>{{c.detallePedido}}</td>
-                    <td>{{c.precio}}</td>
-                    <td>{{c.archivo}}</td>
-                    <td>{{c.fechaEntrega}}</td>
--->
 <button type="button" class="close" ng-click="cancel();">
     <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
 </button>
@@ -16,17 +7,17 @@
 <div class="modal-body">
     <form name="usuario_form" class="form-horizontal" role="form" novalidate>
 
-        <form-element label="nombreCliente" mod="usuario">
+        <form-element label="Nombre cliente" mod="usuario">
             <textarea class="form-control" name="nombreCliente" placeholder="Nombre del cliente" ng-model="usuario.nombreCliente">{{usuario.nombreCliente}}</textarea>
             <small class="errorMessage" ng-show="usuario_form.nombreCliente.$dirty && usuario_form.nombreCliente.$invalid"> Ingresa el nombre del cliente</small>
         </form-element>
 
-        <form-element label="detalleCliente" mod="usuario">
+        <form-element label="Detalles cliente" mod="usuario">
             <input type="text" class="form-control" name="detalleCliente" placeholder="detalleCliente" ng-model="usuario.detalleCliente" focus/>
             <small class="errorMessage" ng-show="usuario_form.detalleCliente.$dirty && usuario_form.detalleCliente.$invalid"> Ingresa los detalles del cliente.</small>
         </form-element>
 
-        <form-element label="detallePedido" mod="usuario">
+        <form-element label="Detalle pedido" mod="usuario">
             <textarea class="form-control" name="detallePedido" placeholder="detallePedido" ng-model="usuario.detallePedido">{{usuario.detallePedido}}</textarea>
             <small class="errorMessage" ng-show="usuario_form.detallePedido.$dirty && usuario_form.detallePedido.$invalid"> Ingresa los detalles del pedido</small>
         </form-element>
@@ -45,6 +36,12 @@
             <input type="date" class="form-control" name="fechaEntrega" placeholder="fechaEntrega" ng-model="usuario.fechaEntrega" focus/>
             <small class="errorMessage" ng-show="usuario_form.fechaEntrega.$dirty && usuario_form.fechaEntrega.$invalid"> Ingresa la fecha de entrega.</small>
         </form-element>
+
+        <form-element label="Status" mod="usuario">
+            <input type="text" class="form-control" name="status" placeholder="status" ng-model="usuario.status" focus/>
+            <small class="errorMessage" ng-show="usuario_form.status.$dirty && usuario_form.status.$invalid"> Ingresa el status del pedido.</small>
+        </form-element>
+
         <div class="space"></div>
         <div class="space-4"></div>
         <div class="modal-footer">

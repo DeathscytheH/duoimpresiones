@@ -1,39 +1,47 @@
 app.controller('registroventasCtrl', function ($scope, $modal, $filter, Data) {
     $scope.usuario = {};
-    Data.get('registroventas').then(function(data){
+    Data.get('registroventas').then(function (data) {
         $scope.usuarios = data.data;
     });
 
-    $scope.deleteUsuario = function(usuario){
-        if(confirm("Estas seguro de eliminar la venta?")){
-            Data.delete("registroventas/"+usuario.id).then(function(result){
-                $scope.usuarios = _.without($scope.usuarios, _.findWhere($scope.usuarios, {id:usuario.id}));
+    $scope.changeProductStatus = function (product) {
+        product.status = (product.status == "Active" ? "Inactive" : "Active");
+        Data.put("registroventas/" + product.id, {
+            status: product.status
+        });
+    };
+
+    $scope.deleteUsuario = function (usuario) {
+        if (confirm("Estas seguro de eliminar la venta?")) {
+            Data.delete("registroventas/" + usuario.id).then(function (result) {
+                $scope.usuarios = _.without($scope.usuarios, _.findWhere($scope.usuarios, {
+                    id: usuario.id
+                }));
             });
         }
     };
-    $scope.open = function (p,size) {
+    $scope.open = function (p, size) {
         var modalInstance = $modal.open({
-          templateUrl: 'registroVentas/registroventasEdit.html',
-          controller: 'registroventasEditCtrl',
-          size: size,
-          resolve: {
-            item: function () {
-              return p;
+            templateUrl: 'registroVentas/registroventasEdit.html',
+            controller: 'registroventasEditCtrl',
+            size: size,
+            resolve: {
+                item: function () {
+                    return p;
+                }
             }
-          }
         });
-        modalInstance.result.then(function(selectedObject) {
-            if(selectedObject.save == "insert"){
+        modalInstance.result.then(function (selectedObject) {
+            if (selectedObject.save == "insert") {
                 $scope.usuarios.push(selectedObject);
                 $scope.usuarios = $filter('orderBy')($scope.usuarios, 'id', 'reverse');
-            }else if(selectedObject.save == "update"){
+            } else if (selectedObject.save == "update") {
                 p.id = selectedObject.id;
                 p.tamano = selectedObject.tamano;
                 p.precio = selectedObject.precio;
             }
         });
     };
-
  $scope.columns = [
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
                     {text:"Nombre del cliente",predicate:"nombreCliente",sortable:true},
@@ -43,6 +51,7 @@ app.controller('registroventasCtrl', function ($scope, $modal, $filter, Data) {
                     {text:"Precio",predicate:"precioTotal",sortable:true},
                     {text:"Archivo",predicate:"archivo",sortable:true},
                     {text:"Fecha de entrega",predicate:"fechaEntrega",sortable:true},
+                    {text:"Status",predicate:"status",sortable:true},
                     {text:"Accion",predicate:"",sortable:false}
                 ];
 
