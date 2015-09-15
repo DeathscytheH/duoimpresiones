@@ -105,9 +105,10 @@
                                 <label for="procesos">Procesos</label>
                                 <br>
                                 <div ng-repeat="proceso in procesos">
-                                    <input type="checkbox" ng-true-value="1" ng-false-value="2" value="{{proceso.lona}}" ng-checked="proceso.lona == 1">
-                                    <label for="proceso.nombre_proceso">{{ proceso.nombre_proceso }} {{ proceso.lona }}</label>
+                                    <input type="checkbox" ng-model="prueba.selecionado[proceso.id]" ng-true-value="1" ng-false-value="2" value="{{proceso.lona}}" ng-checked="proceso.lona == 1">
+                                    <label for="proceso.nombre_proceso">{{ proceso.nombre_proceso }}</label>
                                 </div>
+                                hola {{ prueba.seleccionado }} hola
                             </div>
                         </div>
                         <!-- Zona de procesos. -->

@@ -559,7 +559,7 @@ $app->get('/gformato/:id', function($id) use ($app){
     //funcion con where
 $app->get('/procesosLonas', function() {
     global $db;
-    $rows = $db->select3("procesosPrioridades","nombre_proceso, prioridad_proceso, lona", array('lona'=>'0'),'>');
+    $rows = $db->select3("procesosPrioridades","id ,nombre_proceso, prioridad_proceso, lona", array('lona'=>'0'),'>');
     echoResponse(200, $rows);
 });
 //Fin - Ventas mostrador Lonas

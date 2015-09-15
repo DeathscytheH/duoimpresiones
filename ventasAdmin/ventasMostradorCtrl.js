@@ -123,6 +123,9 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
         $modalInstance.dismiss('cancel');
     };
 
-
+    //Prueba de guardar procesos.
+    $scope.prueba = {
+        selecionado:{},
+    };
 
 });
