@@ -30,13 +30,10 @@ app.controller('ventasMostradorCtrl', function ($scope, $modal, $filter, $log) {
 
 app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log) {
     /**/
-    Data.get('procesosLonas').then(function(data){
-        $scope.procesos = data.data;
-    });
     $scope.cliente = {
-        nombre_completo:'',
-        email:'',
-        telefono:'',
+        nombre_completo: '',
+        email: '',
+        telefono: '',
     };
 
     $scope.tipo = '';
@@ -54,16 +51,17 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
     };
 
     $scope.lona = {
-        nombreCliente:'',
-        detalleCliente:'',
-        detallePedido:'',
+        nombreCliente: '',
+        detalleCliente: '',
+        detallePedido: '',
+        procesos:[],
     };
 
     //Checar id del cliente, si existe regresa sus datos.
-    $scope.checkId = function (id_cliente){
+    $scope.checkId = function (id_cliente) {
         Data.get('clientes/' + id_cliente).then(function (data) {
             $scope.clientes = data.data;
-            if($scope.clientes[0]){
+            if ($scope.clientes[0]) {
                 $scope.cliente = $scope.clientes[0];
             } else {
                 $scope.cliente = [];
@@ -74,31 +72,31 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
     };
 
     //Obtener la informacion de la tabla gformato.
-    Data.get('gformato').then(function(data){
+    Data.get('gformato').then(function (data) {
         $scope.lonas = data.data;
     });
 
     //watchGroup para cambiar valores.
-    $scope.$watchCollection('cliente', function(newValues, oldValues){
+    $scope.$watchCollection('cliente', function (newValues, oldValues) {
         $scope.lona.nombreCliente = $scope.cliente.nombre_completo;
-        $scope.lona.detalleCliente = 'Email: '+$scope.cliente.email+' | '+'Telefono: '+$scope.cliente.telefono;
+        $scope.lona.detalleCliente = 'Email: ' + $scope.cliente.email + ' | ' + 'Telefono: ' + $scope.cliente.telefono;
     });
 
-    $scope.$watchGroup(['tipo','largo','ancho','bastilla','ojillos','otros1'], function(newValues, oldValues){
+    $scope.$watchGroup(['tipo', 'largo', 'ancho', 'bastilla', 'ojillos', 'otros1'], function (newValues, oldValues) {
         $scope.area = $scope.largo * $scope.ancho;
 
-        $scope.lona.detallePedido = 'Tipo: '+$scope.tipo.descripcion+'| Area: '+$scope.area+'m2 | Largo: '+$scope.largo+'m | Ancho: '+$scope.ancho+'m | Bastilla: '+$scope.bastilla+' | Ojillos: '+$scope.ojillos+' | Otros: '+$scope.otros1;
+        $scope.lona.detallePedido = 'Tipo: ' + $scope.tipo.descripcion + '| Area: ' + $scope.area + 'm2 | Largo: ' + $scope.largo + 'm | Ancho: ' + $scope.ancho + 'm | Bastilla: ' + $scope.bastilla + ' | Ojillos: ' + $scope.ojillos + ' | Otros: ' + $scope.otros1;
 
     });
 
     //Registra los datos del cliente.
-    $scope.registrarCliente = function(clienteVentana){
+    $scope.registrarCliente = function (clienteVentana) {
         Data.post('clientes', clienteVentana).then(function (result) {
-            if(result.status != 'error'){
+            if (result.status != 'error') {
                 var x = angular.copy(clienteVentana);
                 x.save = 'insert';
                 x.id = result.data;
-            }else{
+            } else {
                 console.log(result);
             }
         });
@@ -124,8 +122,17 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
     };
 
     //Prueba de guardar procesos.
-    $scope.prueba = {
-        selecionado:{},
+    $scope.articulo = {
+        procesos: [],
     };
 
+    Data.get('procesosLonas').then(function (data) {
+        $scope.procesos = data.data;
+        angular.forEach($scope.procesos, function (value, key) {
+            if (value.lona === 1) {
+                $scope.lona.procesos.push(value.prioridad_proceso);
+                console.log(value.nombre_proceso + '--' + value.prioridad_proceso);
+            }
+        });
+    });
 });

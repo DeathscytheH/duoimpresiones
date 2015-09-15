@@ -51,6 +51,7 @@ app.controller('registroventasCtrl', function ($scope, $modal, $filter, Data) {
                     {text:"Precio",predicate:"precioTotal",sortable:true},
                     {text:"Archivo",predicate:"archivo",sortable:true},
                     {text:"Fecha de entrega",predicate:"fechaEntrega",sortable:true},
+                    {text:"Procesos",predicate:"procesos",sortable:true},
                     {text:"Status",predicate:"status",sortable:true},
                     {text:"Accion",predicate:"",sortable:false}
                 ];
