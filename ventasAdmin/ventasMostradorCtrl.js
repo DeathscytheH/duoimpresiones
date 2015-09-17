@@ -84,7 +84,6 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
 
     $scope.$watchGroup(['tipo', 'largo', 'ancho', 'bastilla', 'ojillos', 'otros1'], function (newValues, oldValues) {
         $scope.area = $scope.largo * $scope.ancho;
-
         $scope.lona.detallePedido = 'Tipo: ' + $scope.tipo.descripcion + '| Area: ' + $scope.area + 'm2 | Largo: ' + $scope.largo + 'm | Ancho: ' + $scope.ancho + 'm | Bastilla: ' + $scope.bastilla + ' | Ojillos: ' + $scope.ojillos + ' | Otros: ' + $scope.otros1;
 
     });
@@ -114,6 +113,7 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
                 console.log(result);
             }
         });
+
     };
 
     //Cierra el modal
