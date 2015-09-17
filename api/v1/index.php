@@ -610,6 +610,43 @@ $app->delete('/clientes/:id', function($id) {
 });
 // Fin - Clientes de ventanilla
 
+//Inicia - Detalles pedido
+$app->get('/detallePedido', function() {
+    global $db;
+    $rows = $db->select("detallePedido","id_pedido, id_cliente, nombre_cliente, detalle_pedido, proceso_prioridad, procesos, status, archivo, fechaEntrega, fechaRegistro",array());
+    echoResponse(200, $rows);
+});
+
+$app->post('/detallePedido', function() use ($app) {
+    $data = json_decode($app->request->getBody());
+    $mandatory = array('detallePedido');
+    global $db;
+    $rows = $db->insert("detallePedido", $data, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Pedido agregado con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->put('/detallePedido/:id_pedido', function($id) use ($app) {
+    $data = json_decode($app->request->getBody());
+    $condition = array('id_pedido'=>$id);
+    $mandatory = array();
+    global $db;
+    $rows = $db->update("detallePedido", $data, $condition, $mandatory);
+    if($rows["status"]=="success")
+        $rows["message"] = "Informacion de venta actualizada con exito.";
+    echoResponse(200, $rows);
+});
+
+$app->delete('/detallePedido/:id_pedido', function($id) {
+    global $db;
+    $rows = $db->delete("detallePedido", array('id_pedido'=>$id));
+    if($rows["status"]=="success")
+        $rows["message"] = "Venta removida con exito.";
+    echoResponse(200, $rows);
+});
+//Fin - Detalles pedido
+
 
 function echoResponse($status_code, $response) {
     global $app;

@@ -89,6 +89,11 @@ app.config(['$routeProvider',
       templateUrl: 'clientes/clientes.html',
       controller: 'clientesCtrl'
     })
+    .when('/detallesPedidos', {
+      title: 'Detalles Pedidos',
+      templateUrl: 'detallesPedidos/detallesPedidos.html',
+      controller: 'detallesPedidosCtrl'
+    })
     //Prueba
     .when('/prueba', {
       title: 'Pulseras',
