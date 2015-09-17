@@ -91,8 +91,8 @@ app.config(['$routeProvider',
     })
     .when('/detallesPedidos', {
       title: 'Detalles Pedidos',
-      templateUrl: 'detallesPedidos/detallesPedidos.html',
-      controller: 'detallesPedidosCtrl'
+      templateUrl: 'procesos/detallesPedidos/detallesPedidos.html',
+      controller: 'detallePedidoCtrl'
     })
     //Prueba
     .when('/prueba', {

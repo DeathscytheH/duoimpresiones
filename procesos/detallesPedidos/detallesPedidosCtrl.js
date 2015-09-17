@@ -1,19 +1,19 @@
-app.controller('registroventasCtrl', function ($scope, $modal, $filter, Data) {
+app.controller('detallePedidoCtrl', function ($scope, $modal, $filter, Data) {
     $scope.usuario = {};
-    Data.get('registroventas').then(function (data) {
+    Data.get('detallePedido').then(function (data) {
         $scope.usuarios = data.data;
     });
 
     $scope.changeProductStatus = function (product) {
-        product.status = (product.status == "Active" ? "Inactive" : "Active");
-        Data.put("registroventas/" + product.id, {
+        product.status = (product.status == "Proceso" ? "Activo" : "Proceso");
+        Data.put("detallePedido/" + product.id, {
             status: product.status
         });
     };
 
     $scope.deleteUsuario = function (usuario) {
         if (confirm("Estas seguro de eliminar la venta?")) {
-            Data.delete("registroventas/" + usuario.id).then(function (result) {
+            Data.delete("detallePedido/" + usuario.id).then(function (result) {
                 $scope.usuarios = _.without($scope.usuarios, _.findWhere($scope.usuarios, {
                     id: usuario.id
                 }));
@@ -22,8 +22,8 @@ app.controller('registroventasCtrl', function ($scope, $modal, $filter, Data) {
     };
     $scope.open = function (p, size) {
         var modalInstance = $modal.open({
-            templateUrl: 'registroVentas/registroventasEdit.html',
-            controller: 'registroventasEditCtrl',
+            templateUrl: 'detallePedido/detallePedidoEdit.html',
+            controller: 'detallePedidoEditCtrl',
             size: size,
             resolve: {
                 item: function () {
@@ -43,18 +43,6 @@ app.controller('registroventasCtrl', function ($scope, $modal, $filter, Data) {
         });
     };
  $scope.columns = [
-
-     /*
-                    <td>{{c.id_pedido}}</td>
-                    <td>{{c.id_cliente}}</td>
-                    <td>{{c.nombre_cliente}}</td>
-                    <td>{{c.detalle_pedido}}</td>
-                    <td>{{c.proceso_prioridad}}</td>
-                    <td>{{c.procesos}}</td>
-                    <td>{{c.archivo}}</td>
-                    <td>{{c.fechaEntrega}}</td>
-                    <td>{{c.fechaRegistro}}</td>
-     */
                     {text:"Id de venta",predicate:"id",sortable:true,dataType:"number"},
                     {text:"Id del cliente",predicate:"nombreCliente",sortable:true},
                     {text:"Nombre del cliente",predicate:"detalleCliente",sortable:true},
@@ -70,7 +58,7 @@ app.controller('registroventasCtrl', function ($scope, $modal, $filter, Data) {
 });
 
 
-app.controller('registroventasEditCtrl', function ($scope, $modalInstance, item, Data) {
+app.controller('detallePedidoEditCtrl', function ($scope, $modalInstance, item, Data) {
 
   $scope.usuario = angular.copy(item);
 
@@ -86,7 +74,7 @@ app.controller('registroventasEditCtrl', function ($scope, $modalInstance, item,
         }
         $scope.saveUsuario = function (usuario) {
             if(usuario.id > 0){
-                Data.put('registroventas/'+usuario.id, usuario).then(function (result) {
+                Data.put('detallePedido/'+usuario.id, usuario).then(function (result) {
                     if(result.status != 'error'){
                         var x = angular.copy(usuario);
                         x.save = 'update';
@@ -96,7 +84,7 @@ app.controller('registroventasEditCtrl', function ($scope, $modalInstance, item,
                     }
                 });
             }else{
-                Data.post('registroventas', usuario).then(function (result) {
+                Data.post('detallePedido', usuario).then(function (result) {
                     if(result.status != 'error'){
                         var x = angular.copy(usuario);
                         x.save = 'insert';
