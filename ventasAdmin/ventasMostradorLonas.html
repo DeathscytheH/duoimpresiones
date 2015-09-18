@@ -105,11 +105,11 @@
                                 <label for="procesos">Procesos</label>
                                 <br>
                                 <div ng-repeat="proceso in procesos">
-                                    <input type="checkbox" checklist-model="lona.procesos" checklist-value="proceso.prioridad_proceso">
+                                    <input type="checkbox" checklist-model="articulo.procesos" checklist-value="proceso.prioridad_proceso">
                                     <label for="proceso.nombre_proceso">{{ proceso.nombre_proceso }}</label>
                                 </div>
-                                hola {{ lona.procesos }} hola
-
+                                hola {{ articulo.procesos }} hola
+                                hola {{ detalleLona }} hola
                             </div>
                         </div>
                         <!-- Zona de procesos. -->
@@ -117,7 +117,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" type="button" ng-click="pedidoLona(lona)">Pedido</button>
+                <button class="btn btn-primary" type="button" ng-click="pedidoLona(lona, detalleLona)">Pedido</button>
                 <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
             </div>
         </form>

@@ -6,8 +6,8 @@ app.controller('detallePedidoCtrl', function ($scope, $modal, $filter, Data) {
 
     $scope.changeProductStatus = function (product) {
         if (confirm("Estas seguro que terminaste el proceso?")) {
-            product.status = (product.status == "Proceso" ? "Activo" : "Proceso");
-            Data.put("detallePedido/" + product.id, {
+            product.status = (product.status == "Proceso" ? "Terminado" : "Proceso");
+            Data.put("detallePedido/" + product.id_cliente, {
                 status: product.status
             });
         }

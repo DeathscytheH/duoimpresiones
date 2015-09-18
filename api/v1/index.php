@@ -619,7 +619,7 @@ $app->get('/detallePedido', function() {
 
 $app->post('/detallePedido', function() use ($app) {
     $data = json_decode($app->request->getBody());
-    $mandatory = array('detallePedido');
+    $mandatory = array('detalle_pedido');
     global $db;
     $rows = $db->insert("detallePedido", $data, $mandatory);
     if($rows["status"]=="success")

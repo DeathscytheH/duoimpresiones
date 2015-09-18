@@ -46,16 +46,31 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
     $scope.otros1 = '';
     $scope.date = new Date();
 
-    $scope.pedido = {
-
-    };
+    $scope.pedido = {};
 
     $scope.lona = {
         nombreCliente: '',
         detalleCliente: '',
         detallePedido: '',
-        procesos:[],
     };
+
+    $scope.detalleLona = {
+        id_cliente: $scope.lona.id,
+        nombre_cliente: $scope.lona.nombreCliente,
+        detalle_pedido:$scope.lona.detallePedido,
+        proceso_prioridad:'',
+        procesos:'',
+        status:'Proceso',
+        archivo:'',
+        fechaEntrega: $scope.lona.fechaEntrega,
+    };
+
+    $scope.$watchCollection('lona', function(newValues){
+        $scope.detalleLona.id_cliente = $scope.lona.id;
+        $scope.detalleLona.nombre_cliente = $scope.lona.nombreCliente;
+        $scope.detalleLona.detalle_pedido = $scope.lona.detallePedido;
+        $scope.detalleLona.fechaEntrega = $scope.lona.fechaEntrega;
+    });
 
     //Checar id del cliente, si existe regresa sus datos.
     $scope.checkId = function (id_cliente) {
@@ -85,7 +100,6 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
     $scope.$watchGroup(['tipo', 'largo', 'ancho', 'bastilla', 'ojillos', 'otros1'], function (newValues, oldValues) {
         $scope.area = $scope.largo * $scope.ancho;
         $scope.lona.detallePedido = 'Tipo: ' + $scope.tipo.descripcion + '| Area: ' + $scope.area + 'm2 | Largo: ' + $scope.largo + 'm | Ancho: ' + $scope.ancho + 'm | Bastilla: ' + $scope.bastilla + ' | Ojillos: ' + $scope.ojillos + ' | Otros: ' + $scope.otros1;
-
     });
 
     //Registra los datos del cliente.
@@ -102,7 +116,7 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
     };
 
     //Registra el pedido de la lona
-    $scope.pedidoLona = function (lona) {
+    $scope.pedidoLona = function (lona, detalleLona) {
         Data.post('registroventas', lona).then(function (result) {
             if (result.status != 'error') {
                 var x = angular.copy(lona);
@@ -114,6 +128,20 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
             }
         });
 
+        //Hace la peticion por cada articulo.
+        angular.forEach($scope.articulo.procesos, function (value) {
+            $scope.detalleLona.proceso_prioridad = value;
+            Data.post('detallePedido', detalleLona).then(function (result) {
+                if (result.status != 'error') {
+                    var x = angular.copy(lona);
+                    x.save = 'insert';
+                    x.id = result.data;
+                    $modalInstance.close(x);
+                } else {
+                    console.log(result);
+                }
+            });
+        });
     };
 
     //Cierra el modal
@@ -125,12 +153,12 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, Data, $log
     $scope.articulo = {
         procesos: [],
     };
-
+    //Procesos
     Data.get('procesosLonas').then(function (data) {
         $scope.procesos = data.data;
         angular.forEach($scope.procesos, function (value, key) {
             if (value.lona === 1) {
-                $scope.lona.procesos.push(value.prioridad_proceso);
+                $scope.articulo.procesos.push(value.prioridad_proceso);
                 console.log(value.nombre_proceso + '--' + value.prioridad_proceso);
             }
         });
